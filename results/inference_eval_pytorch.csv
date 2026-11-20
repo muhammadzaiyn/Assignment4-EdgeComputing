@@ -1,0 +1,8 @@
+model,dataset,test_top1,images,seconds,device
+mobilenetv2_baseline,cifar100,73.87,10000,33.04,cpu
+mobilenetv2_kd,cifar100,78.66,10000,32.84,cpu
+squeezenet_baseline,cifar100,65.29,10000,5.31,cpu
+squeezenet_kd,cifar100,67.86,10000,5.25,cpu
+efficientnet_lite0_baseline,cifar100,74.22,10000,33.74,cpu
+efficientnet_lite0_kd,cifar100,78.96,10000,33.65,cpu
+nas_best,cifar10,91.10000000000001,10000,7.86,cpu

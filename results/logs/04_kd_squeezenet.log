@@ -1,0 +1,71 @@
+# log started 2026-11-20 04:39:12 | command: python scripts/04_train_students_kd.py
+teacher checkpoint resnet50_cifar100.pth: test top-1 82.25%
+
+==============================================================================
+Knowledge distillation (full): ResNet-50 -> SqueezeNet 1.1
+==============================================================================
+student params 776,740 | teacher params 23,705,252
+KD config: alpha 0.9 | T 4.0 | beta 20.0 | hint: student 256ch -> teacher layer3 1024ch (regressor 1x1 conv + BN)
+epochs 60 | lr 0.1 | wd 0.0005 | batch 128
+epoch   1/60 | loss 56.3634 hard_ce 5.114 soft_kl 35.629 feat_mse 1.189 | train  7.86% | val  8.52% (top5 32.24%) | lr 0.1000 |  30.7s  *best
+epoch   2/60 | loss 42.5456 hard_ce 4.811 soft_kl 28.066 feat_mse 0.840 | train 20.09% | val 21.12% (top5 50.98%) | lr 0.0999 |  25.8s  *best
+epoch   3/60 | loss 38.6144 hard_ce 4.409 soft_kl 24.488 feat_mse 0.807 | train 27.35% | val 23.50% (top5 55.38%) | lr 0.0997 |  15.7s  *best
+epoch   4/60 | loss 36.3822 hard_ce 4.141 soft_kl 22.432 feat_mse 0.789 | train 31.81% | val 31.44% (top5 64.78%) | lr 0.0994 |  20.3s  *best
+epoch   5/60 | loss 34.8816 hard_ce 3.973 soft_kl 21.052 feat_mse 0.777 | train 35.11% | val 29.78% (top5 60.36%) | lr 0.0989 |  17.4s
+epoch   6/60 | loss 33.8382 hard_ce 3.832 soft_kl 20.057 feat_mse 0.770 | train 37.78% | val 30.32% (top5 62.02%) | lr 0.0982 |  21.3s
+epoch   7/60 | loss 33.1549 hard_ce 3.750 soft_kl 19.425 feat_mse 0.765 | train 39.23% | val 35.38% (top5 67.52%) | lr 0.0975 |  21.4s  *best
+epoch   8/60 | loss 32.3086 hard_ce 3.607 soft_kl 18.629 feat_mse 0.759 | train 41.31% | val 36.06% (top5 69.68%) | lr 0.0966 |  21.4s  *best
+epoch   9/60 | loss 31.7756 hard_ce 3.520 soft_kl 18.130 feat_mse 0.755 | train 42.76% | val 33.40% (top5 66.02%) | lr 0.0955 |  21.4s
+epoch  10/60 | loss 31.1610 hard_ce 3.430 soft_kl 17.579 feat_mse 0.750 | train 44.13% | val 33.04% (top5 63.06%) | lr 0.0944 |  21.5s
+epoch  11/60 | loss 30.7097 hard_ce 3.355 soft_kl 17.150 feat_mse 0.747 | train 45.44% | val 35.74% (top5 66.60%) | lr 0.0931 |  21.3s
+epoch  12/60 | loss 30.2531 hard_ce 3.277 soft_kl 16.719 feat_mse 0.744 | train 46.32% | val 37.94% (top5 69.78%) | lr 0.0917 |  21.4s  *best
+epoch  13/60 | loss 29.9242 hard_ce 3.221 soft_kl 16.417 feat_mse 0.741 | train 47.33% | val 35.48% (top5 67.86%) | lr 0.0901 |  21.5s
+epoch  14/60 | loss 29.6481 hard_ce 3.166 soft_kl 16.163 feat_mse 0.739 | train 48.07% | val 42.58% (top5 74.78%) | lr 0.0885 |  21.5s  *best
+epoch  15/60 | loss 29.2248 hard_ce 3.087 soft_kl 15.768 feat_mse 0.736 | train 49.13% | val 41.70% (top5 73.40%) | lr 0.0867 |  21.3s
+epoch  16/60 | loss 28.9813 hard_ce 3.066 soft_kl 15.547 feat_mse 0.734 | train 49.65% | val 45.36% (top5 76.22%) | lr 0.0849 |  21.5s  *best
+epoch  17/60 | loss 28.6571 hard_ce 2.989 soft_kl 15.232 feat_mse 0.732 | train 50.85% | val 40.30% (top5 72.12%) | lr 0.0829 |  21.5s
+epoch  18/60 | loss 28.4987 hard_ce 2.979 soft_kl 15.109 feat_mse 0.730 | train 51.24% | val 41.86% (top5 73.02%) | lr 0.0809 |  21.4s
+epoch  19/60 | loss 28.2406 hard_ce 2.924 soft_kl 14.872 feat_mse 0.728 | train 51.75% | val 46.60% (top5 79.06%) | lr 0.0787 |  21.4s  *best
+epoch  20/60 | loss 27.8894 hard_ce 2.863 soft_kl 14.537 feat_mse 0.726 | train 52.98% | val 45.86% (top5 76.54%) | lr 0.0765 |  21.4s
+epoch  21/60 | loss 27.6080 hard_ce 2.808 soft_kl 14.277 feat_mse 0.724 | train 53.26% | val 45.58% (top5 76.88%) | lr 0.0742 |  21.5s
+epoch  22/60 | loss 27.4010 hard_ce 2.768 soft_kl 14.082 feat_mse 0.723 | train 53.75% | val 41.56% (top5 70.44%) | lr 0.0719 |  21.3s
+epoch  23/60 | loss 27.0529 hard_ce 2.698 soft_kl 13.753 feat_mse 0.720 | train 54.92% | val 42.78% (top5 73.24%) | lr 0.0694 |  21.4s
+epoch  24/60 | loss 26.7853 hard_ce 2.661 soft_kl 13.503 feat_mse 0.718 | train 55.54% | val 49.10% (top5 79.22%) | lr 0.0670 |  21.5s  *best
+epoch  25/60 | loss 26.3846 hard_ce 2.590 soft_kl 13.122 feat_mse 0.716 | train 56.40% | val 44.02% (top5 74.60%) | lr 0.0644 |  21.4s
+epoch  26/60 | loss 26.0998 hard_ce 2.541 soft_kl 12.859 feat_mse 0.714 | train 57.07% | val 48.56% (top5 79.16%) | lr 0.0619 |  21.4s
+epoch  27/60 | loss 25.8613 hard_ce 2.505 soft_kl 12.629 feat_mse 0.712 | train 57.50% | val 50.58% (top5 79.86%) | lr 0.0593 |  21.4s  *best
+epoch  28/60 | loss 25.4775 hard_ce 2.436 soft_kl 12.263 feat_mse 0.710 | train 58.40% | val 50.92% (top5 82.02%) | lr 0.0566 |  21.4s  *best
+epoch  29/60 | loss 25.1425 hard_ce 2.395 soft_kl 11.944 feat_mse 0.708 | train 59.07% | val 49.36% (top5 80.30%) | lr 0.0540 |  21.4s
+epoch  30/60 | loss 24.9226 hard_ce 2.347 soft_kl 11.748 feat_mse 0.706 | train 59.96% | val 51.22% (top5 81.66%) | lr 0.0513 |  21.5s  *best
+epoch  31/60 | loss 24.6838 hard_ce 2.298 soft_kl 11.519 feat_mse 0.704 | train 60.39% | val 54.38% (top5 82.28%) | lr 0.0487 |  21.4s  *best
+epoch  32/60 | loss 24.3128 hard_ce 2.223 soft_kl 11.159 feat_mse 0.702 | train 61.30% | val 52.76% (top5 82.14%) | lr 0.0460 |  21.4s
+epoch  33/60 | loss 24.0571 hard_ce 2.168 soft_kl 10.916 feat_mse 0.701 | train 61.91% | val 53.64% (top5 82.82%) | lr 0.0434 |  21.3s
+epoch  34/60 | loss 23.8246 hard_ce 2.122 soft_kl 10.705 feat_mse 0.699 | train 63.05% | val 49.74% (top5 79.38%) | lr 0.0407 |  21.4s
+epoch  35/60 | loss 23.5466 hard_ce 2.063 soft_kl 10.444 feat_mse 0.697 | train 63.60% | val 53.06% (top5 81.92%) | lr 0.0381 |  21.4s
+epoch  36/60 | loss 23.2855 hard_ce 2.011 soft_kl 10.198 feat_mse 0.695 | train 64.31% | val 55.74% (top5 83.98%) | lr 0.0356 |  21.5s  *best
+epoch  37/60 | loss 22.9819 hard_ce 1.949 soft_kl 9.913 feat_mse 0.693 | train 65.17% | val 55.56% (top5 84.08%) | lr 0.0330 |  21.5s
+epoch  38/60 | loss 22.7340 hard_ce 1.892 soft_kl 9.676 feat_mse 0.692 | train 65.99% | val 57.16% (top5 85.20%) | lr 0.0306 |  21.4s  *best
+epoch  39/60 | loss 22.3356 hard_ce 1.820 soft_kl 9.308 feat_mse 0.689 | train 66.86% | val 56.68% (top5 84.16%) | lr 0.0281 |  21.5s
+epoch  40/60 | loss 22.0860 hard_ce 1.764 soft_kl 9.069 feat_mse 0.687 | train 67.88% | val 57.98% (top5 84.88%) | lr 0.0258 |  21.4s  *best
+epoch  41/60 | loss 21.8122 hard_ce 1.705 soft_kl 8.819 feat_mse 0.685 | train 68.59% | val 60.10% (top5 86.24%) | lr 0.0235 |  21.4s  *best
+epoch  42/60 | loss 21.5466 hard_ce 1.645 soft_kl 8.561 feat_mse 0.684 | train 69.54% | val 60.02% (top5 86.22%) | lr 0.0213 |  21.5s
+epoch  43/60 | loss 21.1958 hard_ce 1.563 soft_kl 8.234 feat_mse 0.681 | train 70.64% | val 60.70% (top5 87.74%) | lr 0.0191 |  21.3s  *best
+epoch  44/60 | loss 20.8512 hard_ce 1.471 soft_kl 7.903 feat_mse 0.680 | train 71.82% | val 59.98% (top5 86.68%) | lr 0.0171 |  21.5s
+epoch  45/60 | loss 20.6183 hard_ce 1.421 soft_kl 7.695 feat_mse 0.678 | train 72.48% | val 60.26% (top5 87.26%) | lr 0.0151 |  21.4s
+epoch  46/60 | loss 20.2488 hard_ce 1.338 soft_kl 7.339 feat_mse 0.675 | train 73.78% | val 63.50% (top5 89.02%) | lr 0.0133 |  21.4s  *best
+epoch  47/60 | loss 19.9346 hard_ce 1.263 soft_kl 7.039 feat_mse 0.674 | train 74.95% | val 63.90% (top5 88.74%) | lr 0.0115 |  21.3s  *best
+epoch  48/60 | loss 19.6781 hard_ce 1.203 soft_kl 6.803 feat_mse 0.672 | train 75.79% | val 64.06% (top5 88.68%) | lr 0.0099 |  21.5s  *best
+epoch  49/60 | loss 19.3886 hard_ce 1.145 soft_kl 6.521 feat_mse 0.670 | train 76.93% | val 64.22% (top5 89.36%) | lr 0.0083 |  21.5s  *best
+epoch  50/60 | loss 19.0983 hard_ce 1.080 soft_kl 6.253 feat_mse 0.668 | train 77.74% | val 64.72% (top5 89.74%) | lr 0.0069 |  21.4s  *best
+epoch  51/60 | loss 18.8685 hard_ce 1.017 soft_kl 6.035 feat_mse 0.667 | train 78.80% | val 64.92% (top5 89.84%) | lr 0.0056 |  21.3s  *best
+epoch  52/60 | loss 18.6448 hard_ce 0.971 soft_kl 5.821 feat_mse 0.665 | train 79.59% | val 65.90% (top5 90.24%) | lr 0.0045 |  21.3s  *best
+epoch  53/60 | loss 18.4224 hard_ce 0.906 soft_kl 5.608 feat_mse 0.664 | train 80.64% | val 65.82% (top5 90.16%) | lr 0.0034 |  21.4s
+epoch  54/60 | loss 18.2358 hard_ce 0.853 soft_kl 5.424 feat_mse 0.663 | train 81.15% | val 66.16% (top5 90.18%) | lr 0.0025 |  21.3s  *best
+epoch  55/60 | loss 18.0901 hard_ce 0.824 soft_kl 5.293 feat_mse 0.662 | train 81.99% | val 66.40% (top5 90.48%) | lr 0.0018 |  21.5s  *best
+epoch  56/60 | loss 17.9724 hard_ce 0.801 soft_kl 5.175 feat_mse 0.662 | train 82.20% | val 66.74% (top5 90.42%) | lr 0.0011 |  21.5s  *best
+epoch  57/60 | loss 17.8593 hard_ce 0.771 soft_kl 5.072 feat_mse 0.661 | train 82.50% | val 66.54% (top5 90.46%) | lr 0.0006 |  21.3s
+epoch  58/60 | loss 17.8037 hard_ce 0.760 soft_kl 5.017 feat_mse 0.661 | train 83.02% | val 66.88% (top5 90.68%) | lr 0.0003 |  21.4s  *best
+epoch  59/60 | loss 17.7634 hard_ce 0.746 soft_kl 4.971 feat_mse 0.661 | train 83.18% | val 66.94% (top5 90.40%) | lr 0.0001 |  21.4s  *best
+epoch  60/60 | loss 17.7245 hard_ce 0.730 soft_kl 4.932 feat_mse 0.661 | train 83.38% | val 66.84% (top5 90.48%) | lr 0.0000 |  21.3s
+
+[squeezenet] kd: best epoch 59 | val 66.94% | test top-1 67.86% | top-5 91.03% | 21.7 min

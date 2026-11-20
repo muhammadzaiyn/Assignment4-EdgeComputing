@@ -1,0 +1,110 @@
+# log started 2026-11-20 05:45:46 | command: python scripts/08_inference.py --model all --image samples/cifar100_test7_butterfly.png
+
+==============================================================================
+Image: samples/cifar100_test7_butterfly.png  (32x32)
+==============================================================================
+model                              top-1 prediction          conf     latency   other top-k
+MobileNetV2 (baseline)             beetle                  69.47%      4.22 ms   skunk 21.7%, train 3.9%
+MobileNetV2 (KD)                   butterfly               81.17%      4.29 ms   skunk 18.8%, crocodile 0.0%
+SqueezeNet 1.1 (baseline)          shrew                   40.27%      1.75 ms   beetle 30.1%, butterfly 7.9%
+SqueezeNet 1.1 (KD)                butterfly               52.08%      1.39 ms   skunk 26.1%, shrew 7.1%
+EfficientNet-Lite0 (baseline)      beetle                  52.93%      4.57 ms   skunk 24.4%, porcupine 17.0%
+EfficientNet-Lite0 (KD)            butterfly               93.16%      5.60 ms   skunk 6.6%, beetle 0.2%
+NAS-best (CIFAR-10)                horse                   85.17%      1.25 ms   dog 12.9%, frog 1.1%
+# log started 2026-11-20 05:45:49 | command: python scripts/08_inference.py --model nas_best --image samples/cifar10_test12_dog.png
+
+==============================================================================
+Image: samples/cifar10_test12_dog.png  (32x32)
+==============================================================================
+model                              top-1 prediction          conf     latency   other top-k
+NAS-best (CIFAR-10)                dog                     99.98%      1.72 ms   cat 0.0%, deer 0.0%
+# log started 2026-11-20 05:45:52 | command: python scripts/08_inference.py --model all --num-samples 5
+
+==============================================================================
+MobileNetV2 (baseline) - 5 random cifar100 test images (batch latency 13.59 ms on cpu)
+==============================================================================
+ image  ground truth       prediction            conf  ok
+  6252  bowl               bowl                51.79%  yes
+  4684  man                worm                74.03%  NO
+  1731  mouse              mouse               55.78%  yes
+  4742  butterfly          butterfly           97.90%  yes
+  4521  house              house              100.00%  yes
+correct: 4/5
+
+==============================================================================
+MobileNetV2 (KD) - 5 random cifar100 test images (batch latency 9.39 ms on cpu)
+==============================================================================
+ image  ground truth       prediction            conf  ok
+  6366  tulip              tulip               99.96%  yes
+  9628  dolphin            dolphin            100.00%  yes
+  5916  man                man                 74.66%  yes
+   681  butterfly          butterfly          100.00%  yes
+  5459  plain              plain              100.00%  yes
+correct: 5/5
+
+==============================================================================
+SqueezeNet 1.1 (baseline) - 5 random cifar100 test images (batch latency 10.15 ms on cpu)
+==============================================================================
+ image  ground truth       prediction            conf  ok
+  8740  wardrobe           lamp                38.90%  NO
+  7755  sunflower          sunflower           96.30%  yes
+  1092  skunk              house               35.25%  NO
+  6635  cloud              sea                 90.65%  NO
+  2854  orange             orange              99.95%  yes
+correct: 2/5
+
+==============================================================================
+SqueezeNet 1.1 (KD) - 5 random cifar100 test images (batch latency 4.00 ms on cpu)
+==============================================================================
+ image  ground truth       prediction            conf  ok
+  4449  tiger              tiger              100.00%  yes
+  1468  woman              woman               95.57%  yes
+  6973  pine_tree          pine_tree           96.94%  yes
+  6347  lizard             bottle              67.41%  NO
+  9000  cup                cup                 99.43%  yes
+correct: 4/5
+
+==============================================================================
+EfficientNet-Lite0 (baseline) - 5 random cifar100 test images (batch latency 13.19 ms on cpu)
+==============================================================================
+ image  ground truth       prediction            conf  ok
+  8718  mouse              mouse               83.71%  yes
+  1765  sweet_pepper       sweet_pepper        43.86%  yes
+  3011  bottle             woman               86.07%  NO
+  4187  chimpanzee         chimpanzee          99.98%  yes
+  3431  cup                cup                 97.33%  yes
+correct: 4/5
+
+==============================================================================
+EfficientNet-Lite0 (KD) - 5 random cifar100 test images (batch latency 7.93 ms on cpu)
+==============================================================================
+ image  ground truth       prediction            conf  ok
+  1035  porcupine          snail               47.17%  NO
+  1792  chair              bed                 88.15%  NO
+  8328  hamster            hamster            100.00%  yes
+  5479  cup                cup                 93.55%  yes
+   516  dolphin            shark              100.00%  NO
+correct: 2/5
+
+==============================================================================
+NAS-best (CIFAR-10) - 5 random cifar10 test images (batch latency 7.07 ms on cpu)
+==============================================================================
+ image  ground truth       prediction            conf  ok
+  4378  automobile         automobile         100.00%  yes
+  8822  frog               frog               100.00%  yes
+  7307  ship               ship               100.00%  yes
+   771  automobile         automobile          55.87%  yes
+  9210  horse              horse              100.00%  yes
+correct: 5/5
+# log started 2026-11-20 05:45:57 | command: python scripts/08_inference.py --model all --evaluate
+
+==============================================================================
+Full test-set accuracy (PyTorch)
+==============================================================================
+MobileNetV2 (baseline)             cifar100  top-1  73.87%   (10000 images, 33.0 s)
+MobileNetV2 (KD)                   cifar100  top-1  78.66%   (10000 images, 32.8 s)
+SqueezeNet 1.1 (baseline)          cifar100  top-1  65.29%   (10000 images, 5.3 s)
+SqueezeNet 1.1 (KD)                cifar100  top-1  67.86%   (10000 images, 5.3 s)
+EfficientNet-Lite0 (baseline)      cifar100  top-1  74.22%   (10000 images, 33.7 s)
+EfficientNet-Lite0 (KD)            cifar100  top-1  78.96%   (10000 images, 33.7 s)
+NAS-best (CIFAR-10)                cifar10   top-1  91.10%   (10000 images, 7.9 s)

@@ -1,0 +1,65 @@
+{
+  "selected_trial": 39,
+  "config": {
+    "resolution": 32,
+    "activation": "hardswish",
+    "stem_channels": 32,
+    "dropout": 0.0,
+    "stages": [
+      {
+        "block": "mbconv",
+        "depth": 1,
+        "width": 24,
+        "kernel": 3,
+        "expand": 2
+      },
+      {
+        "block": "dwsep",
+        "depth": 2,
+        "width": 96,
+        "kernel": 3,
+        "expand": 1
+      },
+      {
+        "block": "mbconv",
+        "depth": 2,
+        "width": 128,
+        "kernel": 5,
+        "expand": 2
+      }
+    ]
+  },
+  "summary": "r32 hardswish stem32 | mbconvx2 k3 d1 w24 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128",
+  "proxy_val_acc": 84.86,
+  "best_proxy_val_acc": 84.86,
+  "candidates_within_tie_margin": [
+    39
+  ],
+  "measurements": {
+    "params": 158594,
+    "size_mb": 0.678799,
+    "cpu_latency_ms": 1.0735500000009779,
+    "cpu_latency_p90_ms": 1.0987199981173035,
+    "peak_mem_mb": 1.62304,
+    "activation_mem_mb": 0.942592,
+    "macs_m": 20.622592
+  },
+  "constraints": {
+    "max_latency_ms": 2.0,
+    "max_size_mb": 1.0,
+    "max_peak_mem_mb": 8.0
+  },
+  "selection_rule": "highest proxy val accuracy among feasible trials; ties within 0.3 points broken by lower measured CPU latency",
+  "search": {
+    "strategy": "Optuna TPE (constraint-aware) + median pruner",
+    "trials": 100,
+    "complete": 11,
+    "pruned": 52,
+    "rejected": 36,
+    "duplicate": 1,
+    "proxy_epochs": 8,
+    "minutes": 39.6,
+    "space_size": 142504920000,
+    "optuna": "5.1.0"
+  }
+}

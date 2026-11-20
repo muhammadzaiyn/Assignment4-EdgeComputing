@@ -1,0 +1,92 @@
+# log started 2026-11-20 05:48:32 | command: python scripts/09_onnx_inference.py --model mobilenetv2_kd --image samples/cifar100_test11_skunk.png
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - mobilenetv2_kd.onnx
+==============================================================================
+samples/cifar100_test11_skunk.png: skunk (99.81%) | then mushroom 0.1%, seal 0.0% | 2.29 ms
+# log started 2026-11-20 05:48:36 | command: python scripts/09_onnx_inference.py --model all --num-samples 3
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - mobilenetv2_baseline.onnx
+==============================================================================
+  image  6252: truth bowl            pred bowl             51.79%    2.34 ms  ok
+  image  4684: truth man             pred worm             74.03%    1.84 ms  WRONG
+  image  1731: truth mouse           pred mouse            55.78%    1.70 ms  ok
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - mobilenetv2_kd.onnx
+==============================================================================
+  image  6366: truth tulip           pred tulip            99.96%    2.14 ms  ok
+  image  9628: truth dolphin         pred dolphin         100.00%    1.83 ms  ok
+  image  5916: truth man             pred man              74.66%    1.71 ms  ok
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - squeezenet_baseline.onnx
+==============================================================================
+  image  8740: truth wardrobe        pred lamp             38.90%    0.72 ms  WRONG
+  image  7755: truth sunflower       pred sunflower        96.30%    0.45 ms  ok
+  image  1092: truth skunk           pred house            35.25%    0.42 ms  WRONG
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - squeezenet_kd.onnx
+==============================================================================
+  image  4449: truth tiger           pred tiger           100.00%    0.71 ms  ok
+  image  1468: truth woman           pred woman            95.57%    0.51 ms  ok
+  image  6973: truth pine_tree       pred pine_tree        96.94%    0.46 ms  ok
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - efficientnet_lite0_baseline.onnx
+==============================================================================
+  image  8718: truth mouse           pred mouse            83.71%    2.63 ms  ok
+  image  1765: truth sweet_pepper    pred sweet_pepper     43.86%    2.39 ms  ok
+  image  3011: truth bottle          pred woman            86.07%    2.24 ms  WRONG
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - efficientnet_lite0_kd.onnx
+==============================================================================
+  image  1035: truth porcupine       pred snail            47.17%    2.58 ms  WRONG
+  image  1792: truth chair           pred bed              88.15%    2.29 ms  WRONG
+  image  8328: truth hamster         pred hamster         100.00%    2.17 ms  ok
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - nas_best.onnx
+==============================================================================
+  image  4378: truth automobile      pred automobile      100.00%    0.66 ms  ok
+  image  8822: truth frog            pred frog            100.00%    0.41 ms  ok
+  image  7307: truth ship            pred ship            100.00%    0.39 ms  ok
+# log started 2026-11-20 05:48:39 | command: python scripts/09_onnx_inference.py --model all --evaluate
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - mobilenetv2_baseline.onnx
+==============================================================================
+  test top-1 73.87% on 10000 images in 16.8 s (594 img/s, batch 256)
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - mobilenetv2_kd.onnx
+==============================================================================
+  test top-1 78.66% on 10000 images in 16.8 s (594 img/s, batch 256)
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - squeezenet_baseline.onnx
+==============================================================================
+  test top-1 65.29% on 10000 images in 4.0 s (2493 img/s, batch 256)
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - squeezenet_kd.onnx
+==============================================================================
+  test top-1 67.86% on 10000 images in 4.0 s (2487 img/s, batch 256)
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - efficientnet_lite0_baseline.onnx
+==============================================================================
+  test top-1 74.22% on 10000 images in 21.2 s (471 img/s, batch 256)
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - efficientnet_lite0_kd.onnx
+==============================================================================
+  test top-1 78.96% on 10000 images in 21.2 s (471 img/s, batch 256)
+
+==============================================================================
+ONNX Runtime (CPUExecutionProvider, 1 thread) - nas_best.onnx
+==============================================================================
+  test top-1 91.10% on 10000 images in 4.3 s (2325 img/s, batch 256)

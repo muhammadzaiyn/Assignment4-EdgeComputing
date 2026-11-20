@@ -1,0 +1,16 @@
+{
+  "arch": "squeezenet",
+  "mode": "kd_soft",
+  "params": 776740,
+  "best_epoch": 59,
+  "val_top1": 66.52,
+  "test_top1": 66.84,
+  "test_top5": 90.08,
+  "train_minutes": 20.76,
+  "kd": {
+    "alpha": 0.9,
+    "temperature": 4.0,
+    "beta": 0.0
+  },
+  "checkpoint": "kd/ablation/squeezenet_kd_soft.pth"
+}

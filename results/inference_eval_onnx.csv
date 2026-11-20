@@ -1,0 +1,8 @@
+model,dataset,test_top1,threads,seconds,images_per_s
+mobilenetv2_baseline,cifar100,73.87,1,16.83,594.0
+mobilenetv2_kd,cifar100,78.66,1,16.84,593.9
+squeezenet_baseline,cifar100,65.29,1,4.01,2493.3
+squeezenet_kd,cifar100,67.86,1,4.02,2487.0
+efficientnet_lite0_baseline,cifar100,74.22,1,21.23,471.0
+efficientnet_lite0_kd,cifar100,78.96,1,21.23,471.0
+nas_best,cifar10,91.10000000000001,1,4.3,2324.7

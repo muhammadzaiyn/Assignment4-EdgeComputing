@@ -1,0 +1,57 @@
+# log started 2026-11-20 05:50:16 | command: python scripts/10_benchmark.py
+
+==============================================================================
+Benchmark settings
+==============================================================================
+CPU AMD Ryzen 7 7700 8-Core Processor | 8 cores / 16 threads | torch 2.11.0+cu128 | onnxruntime 1.32.0
+latency: batch 1, 1 thread, 50 warm-up + 300 timed runs, median over 3 repeats | throughput: ORT batch 128, 8 threads
+CPU load before start: 1%
+
+==============================================================================
+Accuracy and size
+==============================================================================
+ResNet-50 (teacher)                top-1  82.27% (ONNX None) | top-5  96.33% | params 23.705 M | MACs   1298.0 M | pth   95.13 MB | peak mem 113.0 MB
+MobileNetV2 (baseline)             top-1  73.88% (ONNX 73.87%) | top-5  93.53% | params  2.352 M | MACs     88.1 M | pth    9.64 MB | peak mem 12.2 MB
+MobileNetV2 (KD)                   top-1  78.68% (ONNX 78.66%) | top-5  95.49% | params  2.352 M | MACs     88.1 M | pth    9.64 MB | peak mem 12.2 MB
+SqueezeNet 1.1 (baseline)          top-1  65.27% (ONNX 65.29%) | top-5  89.53% | params  0.777 M | MACs     24.2 M | pth    3.18 MB | peak mem 6.5 MB
+SqueezeNet 1.1 (KD)                top-1  67.87% (ONNX 67.86%) | top-5  90.99% | params  0.777 M | MACs     24.2 M | pth    3.18 MB | peak mem 6.5 MB
+EfficientNet-Lite0 (baseline)      top-1  74.20% (ONNX 74.22%) | top-5  93.30% | params  3.499 M | MACs    115.7 M | pth   14.26 MB | peak mem 16.8 MB
+EfficientNet-Lite0 (KD)            top-1  78.96% (ONNX 78.96%) | top-5  95.46% | params  3.499 M | MACs    115.7 M | pth   14.26 MB | peak mem 16.8 MB
+NAS-best (CIFAR-10)                top-1  91.10% (ONNX 91.10%) | top-5  99.68% | params  0.159 M | MACs     20.6 M | pth    0.68 MB | peak mem 1.6 MB
+
+==============================================================================
+CPU latency (batch 1, 1 thread)
+==============================================================================
+  repeat 1/3 done
+  repeat 2/3 done
+  repeat 3/3 done
+ResNet-50 (teacher)                PyTorch p50  28.169 ms (p99  30.344) | no ONNX (reference)
+MobileNetV2 (baseline)             PyTorch p50   4.253 ms (p99   4.742) | ORT p50   1.555 ms (p99   1.889) | ORT throughput     1586 img/s
+MobileNetV2 (KD)                   PyTorch p50   4.250 ms (p99   4.763) | ORT p50   1.541 ms (p99   1.861) | ORT throughput     1550 img/s
+SqueezeNet 1.1 (baseline)          PyTorch p50   2.068 ms (p99   2.166) | ORT p50   0.341 ms (p99   0.355) | ORT throughput    10705 img/s
+SqueezeNet 1.1 (KD)                PyTorch p50   2.021 ms (p99   2.099) | ORT p50   0.342 ms (p99   0.415) | ORT throughput    11085 img/s
+EfficientNet-Lite0 (baseline)      PyTorch p50   4.806 ms (p99   5.385) | ORT p50   2.029 ms (p99   2.456) | ORT throughput     1380 img/s
+EfficientNet-Lite0 (KD)            PyTorch p50   4.787 ms (p99   5.358) | ORT p50   1.998 ms (p99   2.107) | ORT throughput     1407 img/s
+NAS-best (CIFAR-10)                PyTorch p50   1.078 ms (p99   1.145) | ORT p50   0.371 ms (p99   0.387) | ORT throughput     7541 img/s
+
+==============================================================================
+Knowledge distillation: baseline vs distilled students
+==============================================================================
+mobilenetv2          baseline  73.88% | KD soft-only  76.92% | KD full  78.68% | gain +4.80 pts | teacher agreement 76.4% -> 83.3%
+squeezenet           baseline  65.27% | KD soft-only  66.91% | KD full  67.87% | gain +2.60 pts | teacher agreement 67.7% -> 71.1%
+efficientnet_lite0   baseline  74.20% | KD soft-only  76.41% | KD full  78.96% | gain +4.76 pts | teacher agreement 75.9% -> 83.3%
+
+==============================================================================
+Summary table
+==============================================================================
+model                                top-1   params     MACs     size   PT p50  ORT p50
+ResNet-50 (teacher)                 82.27%  23.705M  1298.0M  95.13MB 28.169ms      -
+MobileNetV2 (baseline)              73.88%   2.352M    88.1M   9.64MB  4.253ms  1.555ms
+MobileNetV2 (KD)                    78.68%   2.352M    88.1M   9.64MB  4.250ms  1.541ms
+SqueezeNet 1.1 (baseline)           65.27%   0.777M    24.2M   3.18MB  2.068ms  0.342ms
+SqueezeNet 1.1 (KD)                 67.87%   0.777M    24.2M   3.18MB  2.021ms  0.342ms
+EfficientNet-Lite0 (baseline)       74.20%   3.499M   115.7M  14.26MB  4.806ms  2.029ms
+EfficientNet-Lite0 (KD)             78.96%   3.499M   115.7M  14.26MB  4.787ms  1.998ms
+NAS-best (CIFAR-10)                 91.10%   0.159M    20.6M   0.68MB  1.078ms  0.371ms
+
+wrote C:\Users\PC\Desktop\Semester 7\EDGE COMPUTING\edge_assignment4\results\benchmark_summary.csv and C:\Users\PC\Desktop\Semester 7\EDGE COMPUTING\edge_assignment4\results\kd_comparison.csv

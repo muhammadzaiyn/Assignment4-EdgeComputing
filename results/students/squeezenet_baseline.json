@@ -1,0 +1,11 @@
+{
+  "arch": "squeezenet",
+  "mode": "baseline",
+  "params": 776740,
+  "best_epoch": 56,
+  "val_top1": 64.78,
+  "test_top1": 65.31,
+  "test_top5": 89.6,
+  "train_minutes": 13.01,
+  "checkpoint": "baseline/squeezenet_baseline.pth"
+}

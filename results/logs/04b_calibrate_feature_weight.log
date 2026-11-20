@@ -1,0 +1,10 @@
+# log started 2026-11-20 03:47:55 | command: python scripts/04b_calibrate_feature_weight.py
+
+==============================================================================
+Loss magnitudes at initialisation (20 batches)
+==============================================================================
+mobilenetv2          CE 4.622 | T^2*KL 41.405 | feature MSE 2.4135 -> balanced beta 15.6
+squeezenet           CE 4.609 | T^2*KL 41.577 | feature MSE 2.4164 -> balanced beta 15.7
+efficientnet_lite0   CE 5.096 | T^2*KL 42.318 | feature MSE 2.4097 -> balanced beta 16.0
+
+median balanced beta 15.7 -> chosen beta = 20

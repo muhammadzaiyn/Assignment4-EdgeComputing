@@ -1,0 +1,68 @@
+# log started 2026-11-20 03:35:52 | command: python scripts/03_train_students_baseline.py
+
+==============================================================================
+Baseline (no KD): SqueezeNet 1.1 on CIFAR-100
+==============================================================================
+params 776,740 | epochs 60 | lr 0.1 | wd 0.0005 | batch 128 | loss: cross-entropy (hard labels)
+epoch   1/60 | loss 4.1494 | train  6.28% | val 11.50% (top5 34.86%) | lr 0.1000 |  22.2s  *best
+epoch   2/60 | loss 3.5140 | train 15.20% | val 18.14% (top5 47.38%) | lr 0.0999 |  15.7s  *best
+epoch   3/60 | loss 3.1114 | train 22.23% | val 20.92% (top5 51.74%) | lr 0.0997 |  15.6s  *best
+epoch   4/60 | loss 2.8409 | train 27.33% | val 24.72% (top5 55.64%) | lr 0.0994 |  15.7s  *best
+epoch   5/60 | loss 2.6634 | train 30.84% | val 30.92% (top5 63.48%) | lr 0.0989 |  15.5s  *best
+epoch   6/60 | loss 2.5395 | train 33.40% | val 29.24% (top5 61.14%) | lr 0.0982 |  13.1s
+epoch   7/60 | loss 2.4451 | train 35.00% | val 33.70% (top5 66.70%) | lr 0.0975 |   9.6s  *best
+epoch   8/60 | loss 2.3655 | train 36.71% | val 31.36% (top5 64.70%) | lr 0.0966 |  12.0s
+epoch   9/60 | loss 2.2914 | train 38.52% | val 30.88% (top5 61.96%) | lr 0.0955 |  11.8s
+epoch  10/60 | loss 2.2322 | train 39.94% | val 35.22% (top5 65.86%) | lr 0.0944 |  12.5s  *best
+epoch  11/60 | loss 2.1825 | train 40.95% | val 34.86% (top5 68.70%) | lr 0.0931 |  13.8s
+epoch  12/60 | loss 2.1294 | train 42.18% | val 37.96% (top5 70.78%) | lr 0.0917 |  13.9s  *best
+epoch  13/60 | loss 2.0963 | train 43.30% | val 38.50% (top5 71.78%) | lr 0.0901 |  13.8s  *best
+epoch  14/60 | loss 2.0497 | train 43.84% | val 36.18% (top5 67.02%) | lr 0.0885 |  12.5s
+epoch  15/60 | loss 2.0087 | train 44.76% | val 38.20% (top5 71.58%) | lr 0.0867 |  13.9s
+epoch  16/60 | loss 1.9858 | train 45.52% | val 36.64% (top5 69.48%) | lr 0.0849 |  13.9s
+epoch  17/60 | loss 1.9481 | train 46.31% | val 39.00% (top5 71.80%) | lr 0.0829 |  13.7s  *best
+epoch  18/60 | loss 1.9206 | train 46.95% | val 38.96% (top5 68.90%) | lr 0.0809 |  12.8s
+epoch  19/60 | loss 1.8800 | train 48.13% | val 40.78% (top5 73.48%) | lr 0.0787 |  13.7s  *best
+epoch  20/60 | loss 1.8554 | train 48.48% | val 43.78% (top5 76.58%) | lr 0.0765 |  13.8s  *best
+epoch  21/60 | loss 1.8200 | train 49.11% | val 44.70% (top5 75.88%) | lr 0.0742 |  13.8s  *best
+epoch  22/60 | loss 1.7976 | train 49.74% | val 42.34% (top5 74.78%) | lr 0.0719 |  13.0s
+epoch  23/60 | loss 1.7614 | train 50.80% | val 45.88% (top5 77.64%) | lr 0.0694 |  13.4s  *best
+epoch  24/60 | loss 1.7429 | train 51.32% | val 46.76% (top5 77.54%) | lr 0.0670 |  13.6s  *best
+epoch  25/60 | loss 1.7080 | train 52.05% | val 45.86% (top5 76.40%) | lr 0.0644 |  13.6s
+epoch  26/60 | loss 1.6867 | train 52.72% | val 48.80% (top5 79.24%) | lr 0.0619 |  13.7s  *best
+epoch  27/60 | loss 1.6599 | train 53.26% | val 47.10% (top5 78.12%) | lr 0.0593 |  12.8s
+epoch  28/60 | loss 1.6238 | train 54.26% | val 46.74% (top5 77.16%) | lr 0.0566 |  13.7s
+epoch  29/60 | loss 1.5977 | train 54.81% | val 46.76% (top5 77.66%) | lr 0.0540 |  13.7s
+epoch  30/60 | loss 1.5709 | train 55.13% | val 48.66% (top5 79.76%) | lr 0.0513 |  13.9s
+epoch  31/60 | loss 1.5400 | train 56.18% | val 50.04% (top5 80.10%) | lr 0.0487 |  13.5s  *best
+epoch  32/60 | loss 1.5102 | train 56.84% | val 51.88% (top5 81.28%) | lr 0.0460 |  13.6s  *best
+epoch  33/60 | loss 1.4802 | train 57.59% | val 52.10% (top5 81.84%) | lr 0.0434 |  13.7s  *best
+epoch  34/60 | loss 1.4482 | train 58.25% | val 45.54% (top5 77.32%) | lr 0.0407 |  13.8s
+epoch  35/60 | loss 1.4194 | train 59.09% | val 50.20% (top5 80.60%) | lr 0.0381 |  13.5s
+epoch  36/60 | loss 1.3693 | train 60.34% | val 51.22% (top5 81.16%) | lr 0.0356 |  13.8s
+epoch  37/60 | loss 1.3476 | train 60.90% | val 52.24% (top5 82.44%) | lr 0.0330 |  13.7s  *best
+epoch  38/60 | loss 1.3172 | train 61.69% | val 50.56% (top5 79.72%) | lr 0.0306 |  13.7s
+epoch  39/60 | loss 1.2716 | train 62.75% | val 53.80% (top5 81.88%) | lr 0.0281 |  13.8s  *best
+epoch  40/60 | loss 1.2372 | train 63.67% | val 54.10% (top5 82.78%) | lr 0.0258 |  13.9s  *best
+epoch  41/60 | loss 1.1996 | train 64.98% | val 57.38% (top5 84.98%) | lr 0.0235 |  13.9s  *best
+epoch  42/60 | loss 1.1587 | train 65.75% | val 57.84% (top5 84.28%) | lr 0.0213 |  13.1s  *best
+epoch  43/60 | loss 1.1208 | train 66.70% | val 57.02% (top5 85.12%) | lr 0.0191 |  13.9s
+epoch  44/60 | loss 1.0710 | train 68.05% | val 57.48% (top5 85.60%) | lr 0.0171 |  13.7s
+epoch  45/60 | loss 1.0347 | train 68.97% | val 56.74% (top5 84.76%) | lr 0.0151 |  13.8s
+epoch  46/60 | loss 0.9868 | train 70.39% | val 58.78% (top5 86.38%) | lr 0.0133 |  13.6s  *best
+epoch  47/60 | loss 0.9458 | train 71.51% | val 59.90% (top5 87.12%) | lr 0.0115 |  13.8s  *best
+epoch  48/60 | loss 0.8988 | train 72.65% | val 60.00% (top5 86.72%) | lr 0.0099 |  13.7s  *best
+epoch  49/60 | loss 0.8605 | train 73.93% | val 61.80% (top5 87.42%) | lr 0.0083 |  13.9s  *best
+epoch  50/60 | loss 0.8169 | train 75.05% | val 61.64% (top5 87.48%) | lr 0.0069 |  13.0s
+epoch  51/60 | loss 0.7756 | train 76.48% | val 62.72% (top5 87.76%) | lr 0.0056 |   8.6s  *best
+epoch  52/60 | loss 0.7399 | train 77.44% | val 63.28% (top5 88.52%) | lr 0.0045 |   6.4s  *best
+epoch  53/60 | loss 0.7033 | train 78.45% | val 63.48% (top5 88.34%) | lr 0.0034 |   6.6s  *best
+epoch  54/60 | loss 0.6680 | train 79.56% | val 63.42% (top5 88.50%) | lr 0.0025 |   6.0s
+epoch  55/60 | loss 0.6360 | train 80.52% | val 64.56% (top5 88.76%) | lr 0.0018 |   7.2s  *best
+epoch  56/60 | loss 0.6139 | train 81.36% | val 64.78% (top5 88.76%) | lr 0.0011 |   6.3s  *best
+epoch  57/60 | loss 0.5960 | train 81.90% | val 64.48% (top5 88.74%) | lr 0.0006 |  10.1s
+epoch  58/60 | loss 0.5863 | train 82.06% | val 64.60% (top5 88.84%) | lr 0.0003 |   7.7s
+epoch  59/60 | loss 0.5727 | train 82.64% | val 64.70% (top5 88.72%) | lr 0.0001 |   6.6s
+epoch  60/60 | loss 0.5694 | train 82.74% | val 64.62% (top5 88.74%) | lr 0.0000 |   7.4s
+
+[squeezenet] baseline: best epoch 56 | val 64.78% | test top-1 65.31% | top-5 89.60% | 13.0 min

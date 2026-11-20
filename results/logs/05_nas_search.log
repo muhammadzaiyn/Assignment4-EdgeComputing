@@ -1,0 +1,585 @@
+# log started 2026-11-20 02:57:58 | command: python scripts/05_nas_search.py --trials 100 --proxy-epochs 8 --timeout-min 55 --fresh
+
+==============================================================================
+Hardware-aware NAS (Optuna TPE) on CIFAR-10
+==============================================================================
+search space: 1.425e+11 architectures
+constraints : CPU latency <= 2.0 ms (batch 1, 1 thread) | size <= 1.0 MB | peak inference memory <= 8.0 MB
+proxy training: 8 epochs on 45k images, batch 256, lr 0.2; ranking on the 5k validation split
+budget: 100 trials or 55.0 min
+
+trial   0 | r32 leakyrelu stem24 | dwsep k7 d2 w48 | dwsep k7 d3 w32 | dwsep k3 d1 w128 | conv k7 d3 w128
+          params 2,449,354 | size 9.841 MB | CPU 1.80 ms | peak mem 22.81 MB | MACs 49.2 M
+          REJECTED: size 9.841 MB > 1.0 MB; peak memory 22.81 MB > 8.0 MB
+trial   1 | r32 hardswish stem16 | mbconvx2 k3 d2 w32 | dwsep k7 d2 w48 | mbconvx4 k7 d3 w128
+          params 394,666 | size 1.648 MB | CPU 1.58 ms | peak mem 2.63 MB | MACs 34.7 M
+          REJECTED: size 1.648 MB > 1.0 MB
+epoch   1/8 | loss 1.8022 | train 31.27% | val 37.78% (top5 87.76%) | lr 0.2000 |  16.1s  *best
+epoch   2/8 | loss 1.3014 | train 52.72% | val 52.70% (top5 95.40%) | lr 0.1901 |   1.7s  *best
+epoch   3/8 | loss 1.0576 | train 62.50% | val 65.54% (top5 97.14%) | lr 0.1623 |   1.7s  *best
+epoch   4/8 | loss 0.8921 | train 68.67% | val 65.92% (top5 96.98%) | lr 0.1223 |   1.7s  *best
+epoch   5/8 | loss 0.7815 | train 72.45% | val 73.58% (top5 97.86%) | lr 0.0777 |   1.7s  *best
+epoch   6/8 | loss 0.6876 | train 75.77% | val 76.96% (top5 98.62%) | lr 0.0377 |   1.7s  *best
+epoch   7/8 | loss 0.6146 | train 78.55% | val 77.92% (top5 98.72%) | lr 0.0099 |   1.7s  *best
+epoch   8/8 | loss 0.5703 | train 80.11% | val 79.22% (top5 98.78%) | lr 0.0000 |   1.7s  *best
+trial   2 | r24 hardswish stem32 | dwsep k7 d3 w48 | dwsep k7 d2 w48 | dwsep k5 d3 w96
+          params 67,514 | size 0.316 MB | CPU 1.08 ms | peak mem 0.83 MB | MACs 10.5 M
+          trained 8 ep in 35s -> val top-1 79.22%
+trial   3 | r40 leakyrelu stem16 | conv k5 d1 w24 | dwsep k3 d2 w32 | conv k7 d2 w160
+          params 1,546,098 | size 6.208 MB | CPU 2.54 ms | peak mem 12.01 MB | MACs 170.1 M
+          REJECTED: latency 2.54 ms > 2.0 ms; size 6.208 MB > 1.0 MB; peak memory 12.01 MB > 8.0 MB
+trial   4 | r40 silu stem16 | dwsep k3 d3 w16 | mbconvx4 k7 d3 w64 | conv k7 d3 w128
+          params 2,129,162 | size 8.573 MB | CPU 4.46 ms | peak mem 12.76 MB | MACs 245.7 M
+          REJECTED: latency 4.46 ms > 2.0 ms; size 8.573 MB > 1.0 MB; peak memory 12.76 MB > 8.0 MB
+epoch   1/8 | loss 1.7144 | train 35.44% | val 34.96% (top5 87.02%) | lr 0.2000 |   8.8s  *best
+epoch   2/8 | loss 1.1163 | train 59.56% | val 56.10% (top5 95.28%) | lr 0.1901 |   1.0s  *best
+epoch   3/8 | loss 0.9014 | train 67.75% | val 68.52% (top5 97.08%) | lr 0.1623 |   1.0s  *best
+epoch   4/8 | loss 0.7851 | train 72.21% | val 68.96% (top5 97.38%) | lr 0.1223 |   1.0s  *best
+epoch   5/8 | loss 0.6973 | train 75.42% | val 75.82% (top5 98.90%) | lr 0.0777 |   1.0s  *best
+epoch   6/8 | loss 0.6287 | train 77.95% | val 77.20% (top5 98.94%) | lr 0.0377 |   1.0s  *best
+epoch   7/8 | loss 0.5699 | train 80.36% | val 79.56% (top5 99.16%) | lr 0.0099 |   1.0s  *best
+epoch   8/8 | loss 0.5316 | train 81.46% | val 79.84% (top5 99.26%) | lr 0.0000 |   1.0s  *best
+trial   5 | r32 leakyrelu stem16 | conv k5 d1 w32 | dwsep k3 d3 w48 | dwsep k7 d2 w96
+          params 56,554 | size 0.259 MB | CPU 0.88 ms | peak mem 1.20 MB | MACs 17.5 M
+          trained 8 ep in 20s -> val top-1 79.84%
+trial   6 | r24 silu stem24 | conv k3 d3 w32 | mbconvx4 k7 d2 w96 | mbconvx6 k5 d2 w128
+          params 526,914 | size 2.178 MB | CPU 1.86 ms | peak mem 7.83 MB | MACs 52.8 M
+          REJECTED: size 2.178 MB > 1.0 MB
+epoch   1/8 | loss 1.7278 | train 34.74% | val 37.50% (top5 85.78%) | lr 0.2000 |  12.4s  *best
+epoch   2/8 | loss 1.1592 | train 58.34% | val 62.90% (top5 96.46%) | lr 0.1901 |   1.9s  *best
+epoch   3/8 | loss 0.9285 | train 66.90% | val 66.48% (top5 97.60%) | lr 0.1623 |   1.9s  *best
+epoch   4/8 | loss 0.7949 | train 71.64% | val 69.80% (top5 97.64%) | lr 0.1223 |   1.9s  *best
+epoch   5/8 | loss 0.6998 | train 75.52% | val 74.52% (top5 98.78%) | lr 0.0777 |   1.9s  *best
+epoch   6/8 | loss 0.6207 | train 78.39% | val 77.36% (top5 98.96%) | lr 0.0377 |   1.9s  *best
+epoch   7/8 | loss 0.5607 | train 80.62% | val 80.26% (top5 99.20%) | lr 0.0099 |   1.9s  *best
+epoch   8/8 | loss 0.5228 | train 81.84% | val 80.94% (top5 99.24%) | lr 0.0000 |   1.9s  *best
+trial   7 | r32 leakyrelu stem16 | mbconvx6 k7 d1 w32 | dwsep k3 d3 w64 | dwsep k5 d2 w64
+          params 44,250 | size 0.216 MB | CPU 1.03 ms | peak mem 2.25 MB | MACs 14.2 M
+          trained 8 ep in 31s -> val top-1 80.94%
+trial   8 | r24 relu6 stem32 | dwsep k7 d2 w48 | conv k7 d1 w64 | conv k3 d3 w160
+          params 741,146 | size 2.993 MB | CPU 1.31 ms | peak mem 4.12 MB | MACs 47.5 M
+          REJECTED: size 2.993 MB > 1.0 MB
+epoch   1/8 | loss 1.8085 | train 31.61% | val 36.16% (top5 84.76%) | lr 0.2000 |   4.4s  *best
+epoch   2/8 | loss 1.3074 | train 51.98% | val 52.74% (top5 94.48%) | lr 0.1901 |   1.2s  *best
+epoch   3/8 | loss 1.0792 | train 61.64% | val 61.62% (top5 96.30%) | lr 0.1623 |   1.2s  *best
+trial   9 | r24 hardswish stem24 | dwsep k7 d3 w48 | conv k3 d1 w96 | conv k3 d1 w96
+          params 151,498 | size 0.632 MB | CPU 0.83 ms | peak mem 1.19 MB | MACs 16.5 M
+          pruned by the median rule (worse than earlier candidates)
+trial  10 | r24 relu stem32 | dwsep k7 d2 w32 | dwsep k7 d3 w64 | dwsep k3 d2 w128 | conv k7 d1 w256
+          params 1,727,114 | size 6.955 MB | CPU 1.47 ms | peak mem 14.16 MB | MACs 22.1 M
+          REJECTED: size 6.955 MB > 1.0 MB; peak memory 14.16 MB > 8.0 MB
+trial  11 | r40 relu6 stem24 | dwsep k3 d2 w16 | conv k3 d3 w32 | dwsep k5 d2 w64
+          params 43,802 | size 0.206 MB | CPU 0.96 ms | peak mem 10.22 MB | MACs 13.5 M
+          REJECTED: peak memory 10.22 MB > 8.0 MB
+epoch   1/8 | loss 1.7519 | train 33.50% | val 42.72% (top5 89.94%) | lr 0.2000 |   1.8s  *best
+epoch   2/8 | loss 1.1753 | train 57.25% | val 62.62% (top5 96.68%) | lr 0.1901 |   1.8s  *best
+epoch   3/8 | loss 0.9457 | train 66.40% | val 60.30% (top5 96.08%) | lr 0.1623 |   1.8s
+trial  12 | r32 relu stem16 | mbconvx6 k7 d1 w32 | dwsep k3 d3 w64 | dwsep k5 d1 w64
+          params 38,298 | size 0.187 MB | CPU 0.90 ms | peak mem 2.23 MB | MACs 13.9 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7188 | train 36.00% | val 43.98% (top5 89.64%) | lr 0.2000 |   7.7s  *best
+epoch   2/8 | loss 1.2269 | train 55.94% | val 53.70% (top5 94.94%) | lr 0.1901 |   1.0s  *best
+epoch   3/8 | loss 1.0311 | train 63.00% | val 63.24% (top5 96.80%) | lr 0.1623 |   1.0s  *best
+trial  13 | r24 leakyrelu stem16 | conv k7 d1 w32 | dwsep k3 d3 w48 | dwsep k7 d2 w96
+          params 68,842 | size 0.308 MB | CPU 0.83 ms | peak mem 0.63 MB | MACs 16.9 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.6958 | train 36.10% | val 51.54% (top5 93.72%) | lr 0.2000 |  14.3s  *best
+epoch   2/8 | loss 1.1096 | train 59.97% | val 60.04% (top5 95.78%) | lr 0.1901 |   1.7s  *best
+epoch   3/8 | loss 0.8914 | train 68.32% | val 64.28% (top5 96.56%) | lr 0.1623 |   1.7s  *best
+trial  14 | r32 leakyrelu stem16 | mbconvx4 k7 d1 w16 | dwsep k3 d1 w48 | mbconvx2 k5 d2 w64 | mbconvx4 k3 d2 w96
+          params 178,090 | size 0.770 MB | CPU 1.03 ms | peak mem 2.51 MB | MACs 11.9 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7069 | train 35.65% | val 45.48% (top5 93.06%) | lr 0.2000 |  16.5s  *best
+epoch   2/8 | loss 1.0813 | train 60.84% | val 63.82% (top5 96.92%) | lr 0.1901 |   2.8s  *best
+epoch   3/8 | loss 0.8337 | train 70.40% | val 71.30% (top5 98.08%) | lr 0.1623 |   2.8s  *best
+epoch   4/8 | loss 0.7059 | train 75.12% | val 76.24% (top5 98.50%) | lr 0.1223 |   2.8s  *best
+epoch   5/8 | loss 0.6173 | train 78.50% | val 79.42% (top5 98.74%) | lr 0.0777 |   2.8s  *best
+epoch   6/8 | loss 0.5427 | train 81.00% | val 81.46% (top5 99.04%) | lr 0.0377 |   2.8s  *best
+epoch   7/8 | loss 0.4814 | train 83.42% | val 82.28% (top5 99.24%) | lr 0.0099 |   2.8s  *best
+epoch   8/8 | loss 0.4393 | train 84.76% | val 82.84% (top5 99.34%) | lr 0.0000 |   2.8s  *best
+trial  15 | r32 silu stem24 | mbconvx6 k7 d1 w32 | dwsep k5 d3 w64 | dwsep k7 d2 w64
+          params 56,114 | size 0.264 MB | CPU 1.29 ms | peak mem 3.78 MB | MACs 21.2 M
+          trained 8 ep in 44s -> val top-1 82.84%
+trial  16 | r32 hardswish stem24 | mbconvx6 k7 d2 w32 | dwsep k3 d3 w48 | dwsep k7 d2 w64 | dwsep k5 d2 w192
+          params 155,970 | size 0.686 MB | CPU 2.01 ms | peak mem 4.20 MB | MACs 42.5 M
+          REJECTED: latency 2.01 ms > 2.0 ms
+epoch   1/8 | loss 1.6820 | train 36.97% | val 43.24% (top5 89.64%) | lr 0.2000 |   4.3s  *best
+epoch   2/8 | loss 1.1152 | train 59.77% | val 63.52% (top5 96.78%) | lr 0.1901 |   2.6s  *best
+epoch   3/8 | loss 0.9178 | train 67.27% | val 67.48% (top5 97.62%) | lr 0.1623 |   2.6s  *best
+trial  17 | r32 leakyrelu stem24 | mbconvx6 k7 d1 w24 | dwsep k5 d3 w64 | dwsep k7 d2 w64
+          params 54,218 | size 0.256 MB | CPU 1.19 ms | peak mem 3.77 MB | MACs 19.9 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7200 | train 35.52% | val 45.34% (top5 91.88%) | lr 0.2000 |  13.5s  *best
+epoch   2/8 | loss 1.1787 | train 57.56% | val 54.74% (top5 95.72%) | lr 0.1901 |   1.9s  *best
+epoch   3/8 | loss 0.9409 | train 66.78% | val 66.76% (top5 97.26%) | lr 0.1623 |   2.2s  *best
+trial  18 | r24 silu stem24 | mbconvx6 k7 d1 w32 | dwsep k5 d3 w48 | mbconvx4 k5 d2 w64
+          params 103,602 | size 0.463 MB | CPU 1.11 ms | peak mem 2.08 MB | MACs 14.1 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7437 | train 33.99% | val 42.84% (top5 91.00%) | lr 0.2000 |  10.4s  *best
+epoch   2/8 | loss 1.1909 | train 56.78% | val 55.60% (top5 95.62%) | lr 0.1901 |   3.4s  *best
+epoch   3/8 | loss 0.9926 | train 64.64% | val 59.10% (top5 96.02%) | lr 0.1623 |   3.0s  *best
+trial  19 | r32 leakyrelu stem16 | conv k7 d1 w48 | dwsep k7 d2 w64 | dwsep k3 d2 w64
+          params 70,922 | size 0.312 MB | CPU 1.08 ms | peak mem 1.00 MB | MACs 43.3 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.6765 | train 37.06% | val 39.96% (top5 84.34%) | lr 0.2000 |   7.9s  *best
+epoch   2/8 | loss 1.0307 | train 63.33% | val 64.58% (top5 96.42%) | lr 0.1901 |   1.9s  *best
+epoch   3/8 | loss 0.8141 | train 71.34% | val 66.98% (top5 97.94%) | lr 0.1623 |   1.9s  *best
+trial  20 | r32 leakyrelu stem16 | mbconvx6 k3 d1 w32 | dwsep k7 d3 w64 | dwsep k5 d2 w96
+          params 59,066 | size 0.276 MB | CPU 1.00 ms | peak mem 2.31 MB | MACs 12.7 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7748 | train 32.52% | val 40.58% (top5 84.50%) | lr 0.2000 |   6.5s  *best
+epoch   2/8 | loss 1.2033 | train 56.42% | val 58.96% (top5 95.80%) | lr 0.1901 |   1.3s  *best
+epoch   3/8 | loss 0.9752 | train 65.25% | val 63.30% (top5 97.00%) | lr 0.1623 |   1.3s  *best
+trial  21 | r32 relu6 stem16 | conv k5 d1 w32 | dwsep k3 d3 w96 | dwsep k3 d2 w96
+          params 72,634 | size 0.326 MB | CPU 0.99 ms | peak mem 0.92 MB | MACs 21.6 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7325 | train 34.39% | val 31.78% (top5 85.94%) | lr 0.2000 |  14.0s  *best
+epoch   2/8 | loss 1.1041 | train 60.30% | val 59.40% (top5 96.08%) | lr 0.1901 |   3.8s  *best
+epoch   3/8 | loss 0.8439 | train 70.15% | val 65.92% (top5 98.08%) | lr 0.1623 |   4.6s  *best
+trial  22 | r32 silu stem16 | dwsep k7 d3 w32 | dwsep k3 d3 w64 | mbconvx6 k5 d2 w64
+          params 150,250 | size 0.660 MB | CPU 1.53 ms | peak mem 1.58 MB | MACs 22.8 M
+          pruned by the median rule (worse than earlier candidates)
+trial  23 | r32 relu6 stem24 | mbconvx2 k7 d3 w32 | conv k5 d3 w64 | dwsep k3 d2 w160
+          params 343,954 | size 1.423 MB | CPU 2.15 ms | peak mem 2.65 MB | MACs 90.2 M
+          REJECTED: latency 2.15 ms > 2.0 ms; size 1.423 MB > 1.0 MB
+trial  24 | r32 silu stem32 | mbconvx4 k3 d3 w32 | dwsep k5 d3 w64 | dwsep k7 d2 w64
+          params 70,346 | size 0.337 MB | CPU 2.11 ms | peak mem 2.17 MB | MACs 34.7 M
+          REJECTED: latency 2.11 ms > 2.0 ms
+epoch   1/8 | loss 1.7155 | train 35.17% | val 44.44% (top5 90.10%) | lr 0.2000 |   3.3s  *best
+epoch   2/8 | loss 1.1365 | train 59.30% | val 61.30% (top5 96.64%) | lr 0.1901 |   2.3s  *best
+epoch   3/8 | loss 0.8889 | train 68.68% | val 68.16% (top5 97.82%) | lr 0.1623 |   2.2s  *best
+epoch   4/8 | loss 0.7766 | train 72.68% | val 71.58% (top5 97.74%) | lr 0.1223 |   3.9s  *best
+epoch   5/8 | loss 0.6882 | train 75.90% | val 75.84% (top5 98.80%) | lr 0.0777 |   2.4s  *best
+epoch   6/8 | loss 0.6178 | train 78.27% | val 77.32% (top5 99.00%) | lr 0.0377 |   1.7s  *best
+epoch   7/8 | loss 0.5587 | train 80.56% | val 81.28% (top5 99.06%) | lr 0.0099 |   1.8s  *best
+epoch   8/8 | loss 0.5197 | train 82.06% | val 81.66% (top5 99.20%) | lr 0.0000 |   1.7s  *best
+trial  25 | r32 leakyrelu stem16 | mbconvx6 k7 d1 w16 | dwsep k3 d2 w64 | dwsep k5 d2 w128
+          params 63,114 | size 0.287 MB | CPU 0.90 ms | peak mem 2.32 MB | MACs 12.8 M
+          trained 8 ep in 21s -> val top-1 81.66%
+trial  26 | r40 leakyrelu stem16 | conv k7 d1 w16 | dwsep k3 d2 w64 | conv k5 d2 w128
+          params 652,138 | size 2.632 MB | CPU 1.63 ms | peak mem 26.02 MB | MACs 86.2 M
+          REJECTED: size 2.632 MB > 1.0 MB; peak memory 26.02 MB > 8.0 MB
+epoch   1/8 | loss 1.7008 | train 36.17% | val 41.84% (top5 88.10%) | lr 0.2000 |  21.3s  *best
+epoch   2/8 | loss 1.1063 | train 60.05% | val 58.20% (top5 96.36%) | lr 0.1901 |  11.2s  *best
+epoch   3/8 | loss 0.8808 | train 68.76% | val 68.30% (top5 97.86%) | lr 0.1623 |  11.1s  *best
+epoch   4/8 | loss 0.7639 | train 72.84% | val 71.08% (top5 98.08%) | lr 0.1223 |  10.7s  *best
+epoch   5/8 | loss 0.6602 | train 77.04% | val 68.84% (top5 97.60%) | lr 0.0777 |   7.7s
+trial  27 | r32 leakyrelu stem32 | mbconvx6 k7 d1 w16 | conv k3 d2 w64 | dwsep k5 d2 w128
+          params 114,890 | size 0.491 MB | CPU 1.27 ms | peak mem 2.99 MB | MACs 34.7 M
+          pruned by the median rule (worse than earlier candidates)
+trial  28 | r40 silu stem24 | mbconvx6 k7 d1 w32 | conv k5 d3 w32 | dwsep k7 d2 w64
+          params 114,482 | size 0.489 MB | CPU 1.76 ms | peak mem 10.60 MB | MACs 57.9 M
+          REJECTED: peak memory 10.60 MB > 8.0 MB
+trial  29 | r32 silu stem24 | mbconvx6 k7 d1 w32 | dwsep k5 d2 w64 | dwsep k7 d2 w128 | mbconvx6 k5 d3 w192
+          params 1,320,242 | size 5.389 MB | CPU 2.14 ms | peak mem 8.89 MB | MACs 45.1 M
+          REJECTED: latency 2.14 ms > 2.0 ms; size 5.389 MB > 1.0 MB; peak memory 8.89 MB > 8.0 MB
+epoch   1/8 | loss 1.7257 | train 34.40% | val 39.14% (top5 89.40%) | lr 0.2000 |  14.4s  *best
+epoch   2/8 | loss 1.1431 | train 58.70% | val 55.20% (top5 95.00%) | lr 0.1901 |   8.3s  *best
+epoch   3/8 | loss 0.9060 | train 68.05% | val 66.34% (top5 97.00%) | lr 0.1623 |   8.3s  *best
+trial  30 | r32 leakyrelu stem16 | conv k7 d3 w16 | dwsep k7 d3 w96 | dwsep k5 d2 w128
+          params 122,506 | size 0.530 MB | CPU 1.46 ms | peak mem 1.17 MB | MACs 49.9 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7208 | train 35.24% | val 42.50% (top5 89.58%) | lr 0.2000 |   3.6s  *best
+epoch   2/8 | loss 1.1598 | train 58.09% | val 62.28% (top5 96.04%) | lr 0.1901 |   3.7s  *best
+epoch   3/8 | loss 0.9617 | train 65.77% | val 67.44% (top5 97.52%) | lr 0.1623 |   3.6s  *best
+trial  31 | r32 leakyrelu stem16 | conv k5 d1 w32 | dwsep k7 d1 w48 | dwsep k7 d2 w96
+          params 51,978 | size 0.231 MB | CPU 0.67 ms | peak mem 0.69 MB | MACs 16.5 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7728 | train 32.68% | val 32.96% (top5 81.42%) | lr 0.2000 |  10.7s  *best
+epoch   2/8 | loss 1.1459 | train 58.89% | val 62.78% (top5 97.00%) | lr 0.1901 |   8.9s  *best
+epoch   3/8 | loss 0.8870 | train 68.57% | val 71.30% (top5 98.46%) | lr 0.1623 |   8.4s  *best
+epoch   4/8 | loss 0.7409 | train 74.19% | val 75.06% (top5 98.42%) | lr 0.1223 |   8.9s  *best
+epoch   5/8 | loss 0.6399 | train 77.69% | val 76.68% (top5 98.70%) | lr 0.0777 |   8.9s  *best
+epoch   6/8 | loss 0.5636 | train 80.60% | val 80.20% (top5 98.86%) | lr 0.0377 |   8.8s  *best
+epoch   7/8 | loss 0.4925 | train 82.93% | val 82.28% (top5 99.16%) | lr 0.0099 |   8.9s  *best
+epoch   8/8 | loss 0.4527 | train 84.41% | val 82.18% (top5 99.20%) | lr 0.0000 |   9.0s
+trial  32 | r32 hardswish stem16 | mbconvx6 k7 d1 w16 | dwsep k3 d2 w96 | dwsep k5 d2 w128 | dwsep k3 d1 w128
+          params 92,234 | size 0.411 MB | CPU 1.03 ms | peak mem 2.44 MB | MACs 14.2 M
+          trained 8 ep in 76s -> val top-1 82.28%
+epoch   1/8 | loss 1.6893 | train 36.69% | val 48.08% (top5 93.44%) | lr 0.2000 |  17.7s  *best
+epoch   2/8 | loss 1.0742 | train 61.51% | val 65.54% (top5 97.28%) | lr 0.1901 |   9.5s  *best
+epoch   3/8 | loss 0.8490 | train 69.75% | val 68.38% (top5 96.28%) | lr 0.1623 |   9.5s  *best
+epoch   4/8 | loss 0.7099 | train 75.07% | val 75.08% (top5 98.42%) | lr 0.1223 |   9.4s  *best
+epoch   5/8 | loss 0.6069 | train 78.80% | val 79.74% (top5 98.94%) | lr 0.0777 |   9.5s  *best
+epoch   6/8 | loss 0.5190 | train 82.13% | val 80.88% (top5 99.26%) | lr 0.0377 |   9.5s  *best
+epoch   7/8 | loss 0.4421 | train 84.61% | val 83.94% (top5 99.22%) | lr 0.0099 |   9.5s  *best
+epoch   8/8 | loss 0.3939 | train 86.40% | val 84.04% (top5 99.24%) | lr 0.0000 |   9.5s  *best
+trial  33 | r32 hardswish stem16 | mbconvx6 k7 d1 w24 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128
+          params 162,642 | size 0.695 MB | CPU 1.35 ms | peak mem 2.73 MB | MACs 24.7 M
+          trained 8 ep in 91s -> val top-1 84.04%
+epoch   1/8 | loss 1.6964 | train 36.09% | val 45.22% (top5 93.66%) | lr 0.2000 |  26.6s  *best
+epoch   2/8 | loss 1.0597 | train 61.98% | val 65.24% (top5 96.98%) | lr 0.1901 |   8.1s  *best
+epoch   3/8 | loss 0.8292 | train 70.98% | val 68.88% (top5 97.34%) | lr 0.1623 |   8.1s  *best
+epoch   4/8 | loss 0.6995 | train 75.47% | val 75.68% (top5 98.60%) | lr 0.1223 |   8.1s  *best
+epoch   5/8 | loss 0.6040 | train 79.01% | val 79.12% (top5 98.76%) | lr 0.0777 |   8.1s  *best
+epoch   6/8 | loss 0.5180 | train 82.15% | val 81.70% (top5 99.50%) | lr 0.0377 |   8.0s  *best
+epoch   7/8 | loss 0.4524 | train 84.38% | val 83.00% (top5 99.44%) | lr 0.0099 |   8.1s  *best
+epoch   8/8 | loss 0.4093 | train 85.88% | val 83.66% (top5 99.44%) | lr 0.0000 |   8.1s  *best
+trial  34 | r32 leakyrelu stem16 | mbconvx6 k5 d1 w16 | dwsep k5 d2 w96 | dwsep k5 d2 w160 | dwsep k3 d1 w128
+          params 109,450 | size 0.481 MB | CPU 1.02 ms | peak mem 2.52 MB | MACs 13.2 M
+          trained 8 ep in 92s -> val top-1 83.66%
+epoch   1/8 | loss 1.6998 | train 36.13% | val 50.14% (top5 90.98%) | lr 0.2000 |  14.1s  *best
+epoch   2/8 | loss 1.1000 | train 60.33% | val 58.38% (top5 96.32%) | lr 0.1901 |   9.6s  *best
+epoch   3/8 | loss 0.9146 | train 67.40% | val 63.02% (top5 96.30%) | lr 0.1623 |   9.6s  *best
+trial  35 | r32 leakyrelu stem16 | mbconvx6 k5 d2 w16 | dwsep k5 d2 w32 | dwsep k5 d1 w160
+          params 49,034 | size 0.232 MB | CPU 1.03 ms | peak mem 2.34 MB | MACs 14.4 M
+          pruned by the median rule (worse than earlier candidates)
+trial  36 | r32 hardswish stem16 | mbconvx6 k7 d3 w24 | dwsep k3 d2 w96 | dwsep k5 d2 w128 | dwsep k3 d1 w128
+          params 123,058 | size 0.551 MB | CPU 2.02 ms | peak mem 4.12 MB | MACs 43.8 M
+          REJECTED: latency 2.02 ms > 2.0 ms
+epoch   1/8 | loss 1.7215 | train 35.24% | val 47.22% (top5 90.42%) | lr 0.2000 |   5.8s  *best
+epoch   2/8 | loss 1.0934 | train 60.75% | val 65.32% (top5 97.10%) | lr 0.1901 |   5.3s  *best
+epoch   3/8 | loss 0.8530 | train 69.78% | val 70.30% (top5 98.20%) | lr 0.1623 |   5.3s  *best
+epoch   4/8 | loss 0.7143 | train 75.06% | val 75.78% (top5 98.98%) | lr 0.1223 |   5.4s  *best
+epoch   5/8 | loss 0.6133 | train 78.49% | val 79.38% (top5 99.18%) | lr 0.0777 |   5.4s  *best
+epoch   6/8 | loss 0.5293 | train 81.50% | val 81.58% (top5 99.08%) | lr 0.0377 |   5.4s  *best
+epoch   7/8 | loss 0.4570 | train 84.00% | val 83.64% (top5 99.42%) | lr 0.0099 |   5.4s  *best
+epoch   8/8 | loss 0.4140 | train 85.65% | val 83.78% (top5 99.32%) | lr 0.0000 |   5.4s  *best
+trial  37 | r32 silu stem16 | mbconvx2 k7 d1 w24 | dwsep k3 d1 w96 | mbconvx2 k5 d2 w128
+          params 146,226 | size 0.623 MB | CPU 0.95 ms | peak mem 1.51 MB | MACs 16.3 M
+          trained 8 ep in 45s -> val top-1 83.78%
+epoch   1/8 | loss 1.7751 | train 32.99% | val 42.32% (top5 86.08%) | lr 0.2000 |   5.9s  *best
+epoch   2/8 | loss 1.1850 | train 57.21% | val 58.82% (top5 96.28%) | lr 0.1901 |   5.3s  *best
+epoch   3/8 | loss 0.9618 | train 65.91% | val 55.90% (top5 94.32%) | lr 0.1623 |   5.3s
+trial  38 | r32 silu stem16 | dwsep k7 d1 w24 | dwsep k3 d1 w32 | mbconvx2 k5 d2 w128
+          params 106,306 | size 0.459 MB | CPU 0.72 ms | peak mem 0.88 MB | MACs 8.7 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7131 | train 35.55% | val 46.76% (top5 88.76%) | lr 0.2000 |  12.0s  *best
+epoch   2/8 | loss 1.0209 | train 63.46% | val 63.44% (top5 97.42%) | lr 0.1901 |   7.6s  *best
+epoch   3/8 | loss 0.7838 | train 72.47% | val 71.44% (top5 98.08%) | lr 0.1623 |   7.7s  *best
+epoch   4/8 | loss 0.6536 | train 77.12% | val 76.76% (top5 98.98%) | lr 0.1223 |   7.7s  *best
+epoch   5/8 | loss 0.5627 | train 80.30% | val 80.52% (top5 99.12%) | lr 0.0777 |   7.6s  *best
+epoch   6/8 | loss 0.4869 | train 83.10% | val 81.98% (top5 99.26%) | lr 0.0377 |   7.6s  *best
+epoch   7/8 | loss 0.4157 | train 85.63% | val 83.94% (top5 99.48%) | lr 0.0099 |   7.7s  *best
+epoch   8/8 | loss 0.3721 | train 87.30% | val 84.86% (top5 99.46%) | lr 0.0000 |   7.6s  *best
+trial  39 | r32 hardswish stem32 | mbconvx2 k3 d1 w24 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128
+          params 158,594 | size 0.679 MB | CPU 1.07 ms | peak mem 1.62 MB | MACs 20.6 M
+          trained 8 ep in 70s -> val top-1 84.86%
+epoch   1/8 | loss 1.7624 | train 33.36% | val 47.12% (top5 92.38%) | lr 0.2000 |  11.8s  *best
+epoch   2/8 | loss 1.1412 | train 58.92% | val 57.52% (top5 94.72%) | lr 0.1901 |   7.7s  *best
+epoch   3/8 | loss 0.9124 | train 67.42% | val 65.08% (top5 97.22%) | lr 0.1623 |   7.8s  *best
+trial  40 | r32 hardswish stem32 | mbconvx2 k3 d1 w24 | dwsep k3 d2 w96 | mbconvx2 k3 d2 w128
+          params 151,426 | size 0.650 MB | CPU 1.07 ms | peak mem 1.59 MB | MACs 20.2 M
+          pruned by the median rule (worse than earlier candidates)
+trial  41 | r40 leakyrelu stem16 | mbconvx2 k5 d1 w32 | dwsep k5 d2 w96 | conv k5 d2 w160 | dwsep k3 d1 w96
+          params 1,074,906 | size 4.335 MB | CPU 2.30 ms | peak mem 36.19 MB | MACs 113.8 M
+          REJECTED: latency 2.30 ms > 2.0 ms; size 4.335 MB > 1.0 MB; peak memory 36.19 MB > 8.0 MB
+trial  42 | r32 leakyrelu stem16 | mbconvx2 k5 d1 w16 | conv k5 d3 w96 | dwsep k7 d2 w160 | dwsep k3 d1 w256
+          params 668,730 | size 2.717 MB | CPU 2.35 ms | peak mem 4.47 MB | MACs 135.3 M
+          REJECTED: latency 2.35 ms > 2.0 ms; size 2.717 MB > 1.0 MB
+epoch   1/8 | loss 1.7225 | train 34.91% | val 41.04% (top5 91.28%) | lr 0.2000 |   6.2s  *best
+epoch   2/8 | loss 1.0848 | train 61.31% | val 64.94% (top5 96.92%) | lr 0.1901 |   6.2s  *best
+epoch   3/8 | loss 0.8784 | train 68.83% | val 70.88% (top5 97.80%) | lr 0.1623 |   6.2s  *best
+epoch   4/8 | loss 0.7444 | train 73.77% | val 76.24% (top5 98.78%) | lr 0.1223 |   6.2s  *best
+epoch   5/8 | loss 0.6450 | train 77.43% | val 77.06% (top5 98.58%) | lr 0.0777 |   6.2s  *best
+trial  43 | r32 silu stem16 | mbconvx2 k7 d1 w24 | dwsep k5 d2 w96 | mbconvx2 k5 d2 w128
+          params 158,610 | size 0.678 MB | CPU 1.21 ms | peak mem 1.56 MB | MACs 19.3 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7041 | train 36.17% | val 42.86% (top5 91.06%) | lr 0.2000 |  22.2s  *best
+epoch   2/8 | loss 1.0425 | train 62.78% | val 65.44% (top5 97.42%) | lr 0.1901 |   7.5s  *best
+epoch   3/8 | loss 0.8026 | train 71.95% | val 68.46% (top5 96.80%) | lr 0.1623 |   7.6s  *best
+trial  44 | r40 silu stem16 | mbconvx2 k3 d1 w24 | dwsep k3 d1 w96 | mbconvx2 k5 d2 w128
+          params 144,946 | size 0.618 MB | CPU 1.13 ms | peak mem 1.50 MB | MACs 23.4 M
+          pruned by the median rule (worse than earlier candidates)
+trial  45 | r24 leakyrelu stem16 | dwsep k5 d3 w16 | dwsep k5 d2 w96 | dwsep k5 d2 w160 | conv k5 d2 w128
+          params 1,005,338 | size 4.069 MB | CPU 1.36 ms | peak mem 19.59 MB | MACs 13.5 M
+          REJECTED: size 4.069 MB > 1.0 MB; peak memory 19.59 MB > 8.0 MB
+epoch   1/8 | loss 1.7127 | train 35.60% | val 44.92% (top5 92.32%) | lr 0.2000 |   9.3s  *best
+epoch   2/8 | loss 1.0989 | train 60.35% | val 63.96% (top5 96.50%) | lr 0.1901 |   5.2s  *best
+epoch   3/8 | loss 0.8658 | train 69.32% | val 69.28% (top5 97.12%) | lr 0.1623 |   5.2s  *best
+epoch   4/8 | loss 0.7344 | train 74.19% | val 73.74% (top5 98.40%) | lr 0.1223 |   5.2s  *best
+trial  46 | r32 hardswish stem16 | mbconvx2 k7 d1 w24 | dwsep k3 d2 w48 | mbconvx2 k5 d2 w160
+          params 170,530 | size 0.725 MB | CPU 0.96 ms | peak mem 2.37 MB | MACs 15.4 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7781 | train 31.96% | val 39.20% (top5 91.36%) | lr 0.2000 |  29.1s  *best
+epoch   2/8 | loss 1.2490 | train 54.34% | val 57.70% (top5 95.88%) | lr 0.1901 |   9.3s  *best
+epoch   3/8 | loss 1.0486 | train 62.21% | val 61.24% (top5 95.72%) | lr 0.1623 |   9.3s  *best
+trial  47 | r32 hardswish stem32 | mbconvx4 k7 d1 w24 | dwsep k3 d2 w32 | mbconvx2 k5 d1 w128
+          params 47,746 | size 0.222 MB | CPU 0.92 ms | peak mem 1.93 MB | MACs 17.4 M
+          pruned by the median rule (worse than earlier candidates)
+trial  48 | r32 leakyrelu stem16 | mbconvx2 k5 d1 w16 | dwsep k5 d2 w96 | dwsep k5 d3 w160 | mbconvx2 k7 d3 w128
+          params 381,386 | size 1.602 MB | CPU 1.40 ms | peak mem 2.32 MB | MACs 17.6 M
+          REJECTED: size 1.602 MB > 1.0 MB
+epoch   1/8 | loss 1.7564 | train 33.17% | val 40.08% (top5 92.02%) | lr 0.2000 |   4.0s  *best
+epoch   2/8 | loss 1.1401 | train 58.74% | val 48.90% (top5 90.50%) | lr 0.1901 |   4.0s  *best
+epoch   3/8 | loss 0.9108 | train 67.66% | val 65.76% (top5 97.50%) | lr 0.1623 |   4.0s  *best
+trial  49 | r32 relu stem16 | mbconvx2 k7 d1 w24 | dwsep k3 d1 w96 | dwsep k5 d2 w128
+          params 59,410 | size 0.267 MB | CPU 0.78 ms | peak mem 1.15 MB | MACs 7.2 M
+          pruned by the median rule (worse than earlier candidates)
+trial  50 | r32 silu stem24 | mbconvx2 k7 d1 w32 | dwsep k5 d3 w96 | conv k7 d2 w160
+          params 2,069,330 | size 8.313 MB | CPU 2.57 ms | peak mem 13.70 MB | MACs 142.9 M
+          REJECTED: latency 2.57 ms > 2.0 ms; size 8.313 MB > 1.0 MB; peak memory 13.70 MB > 8.0 MB
+epoch   1/8 | loss 1.7665 | train 33.39% | val 35.78% (top5 84.60%) | lr 0.2000 |   5.6s  *best
+epoch   2/8 | loss 1.1450 | train 58.72% | val 64.38% (top5 96.78%) | lr 0.1901 |   4.7s  *best
+epoch   3/8 | loss 0.9056 | train 67.71% | val 69.46% (top5 97.88%) | lr 0.1623 |   4.5s  *best
+epoch   4/8 | loss 0.7703 | train 73.08% | val 74.62% (top5 98.50%) | lr 0.1223 |   4.8s  *best
+trial  51 | r32 hardswish stem16 | conv k3 d1 w16 | dwsep k3 d2 w96 | dwsep k5 d2 w128 | dwsep k3 d1 w128
+          params 86,378 | size 0.382 MB | CPU 0.82 ms | peak mem 1.02 MB | MACs 8.5 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7502 | train 33.75% | val 40.94% (top5 91.62%) | lr 0.2000 |   8.4s  *best
+epoch   2/8 | loss 1.1808 | train 57.38% | val 54.62% (top5 96.12%) | lr 0.1901 |   8.5s  *best
+epoch   3/8 | loss 0.9718 | train 65.48% | val 63.66% (top5 96.36%) | lr 0.1623 |   8.5s  *best
+trial  52 | r32 silu stem16 | mbconvx6 k7 d1 w16 | mbconvx2 k3 d1 w96 | mbconvx2 k3 d2 w128
+          params 145,658 | size 0.624 MB | CPU 1.12 ms | peak mem 2.66 MB | MACs 21.6 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.6984 | train 35.50% | val 38.92% (top5 87.20%) | lr 0.2000 |  17.8s  *best
+epoch   2/8 | loss 1.0583 | train 61.91% | val 66.76% (top5 97.18%) | lr 0.1901 |  17.5s  *best
+epoch   3/8 | loss 0.8136 | train 71.18% | val 69.08% (top5 97.92%) | lr 0.1623 |  17.3s  *best
+epoch   4/8 | loss 0.6907 | train 75.77% | val 73.48% (top5 98.40%) | lr 0.1223 |  17.5s  *best
+trial  53 | r32 silu stem16 | mbconvx6 k7 d2 w32 | dwsep k3 d1 w96 | mbconvx2 k5 d1 w128 | dwsep k3 d1 w128
+          params 121,178 | size 0.529 MB | CPU 1.74 ms | peak mem 3.09 MB | MACs 40.2 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7270 | train 35.22% | val 47.34% (top5 91.92%) | lr 0.2000 |  11.8s  *best
+epoch   2/8 | loss 1.0743 | train 61.28% | val 62.40% (top5 97.08%) | lr 0.1901 |   4.6s  *best
+epoch   3/8 | loss 0.8434 | train 70.23% | val 70.88% (top5 98.22%) | lr 0.1623 |   4.6s  *best
+epoch   4/8 | loss 0.7209 | train 74.75% | val 76.30% (top5 98.26%) | lr 0.1223 |   4.6s  *best
+epoch   5/8 | loss 0.6299 | train 78.06% | val 76.90% (top5 98.94%) | lr 0.0777 |   4.6s  *best
+trial  54 | r32 silu stem24 | dwsep k5 d1 w32 | dwsep k5 d3 w64 | dwsep k7 d2 w128
+          params 69,930 | size 0.317 MB | CPU 0.93 ms | peak mem 0.81 MB | MACs 8.9 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7241 | train 34.94% | val 44.62% (top5 90.18%) | lr 0.2000 |   7.7s  *best
+epoch   2/8 | loss 1.1099 | train 59.79% | val 60.98% (top5 95.92%) | lr 0.1901 |   7.8s  *best
+epoch   3/8 | loss 0.8916 | train 68.10% | val 67.48% (top5 97.30%) | lr 0.1623 |   7.8s  *best
+trial  55 | r32 silu stem16 | mbconvx6 k5 d1 w16 | dwsep k5 d2 w96 | dwsep k5 d2 w64
+          params 45,066 | size 0.215 MB | CPU 0.97 ms | peak mem 2.25 MB | MACs 11.0 M
+          pruned by the median rule (worse than earlier candidates)
+trial  56 | r32 hardswish stem16 | mbconvx6 k7 d1 w16 | dwsep k3 d3 w96 | conv k5 d2 w64 | dwsep k3 d1 w128
+          params 314,826 | size 1.299 MB | CPU 1.30 ms | peak mem 5.65 MB | MACs 30.8 M
+          REJECTED: size 1.299 MB > 1.0 MB
+trial  57 | r32 hardswish stem16 | mbconvx6 k7 d2 w48 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128
+          params 210,570 | size 0.899 MB | CPU 2.31 ms | peak mem 5.40 MB | MACs 70.4 M
+          REJECTED: latency 2.31 ms > 2.0 ms
+epoch   1/8 | loss 1.7998 | train 31.65% | val 43.82% (top5 89.96%) | lr 0.2000 |  12.2s  *best
+epoch   2/8 | loss 1.1901 | train 57.07% | val 59.34% (top5 95.98%) | lr 0.1901 |   8.3s  *best
+epoch   3/8 | loss 0.9095 | train 67.68% | val 66.98% (top5 97.00%) | lr 0.1623 |   8.1s  *best
+trial  58 | r32 hardswish stem16 | mbconvx6 k5 d1 w48 | dwsep k3 d2 w64 | dwsep k3 d2 w128 | dwsep k3 d1 w128
+          params 81,322 | size 0.367 MB | CPU 1.04 ms | peak mem 2.40 MB | MACs 13.5 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7429 | train 34.49% | val 27.40% (top5 81.18%) | lr 0.2000 |   7.6s  *best
+epoch   2/8 | loss 1.1465 | train 58.82% | val 66.26% (top5 97.14%) | lr 0.1901 |   7.0s  *best
+epoch   3/8 | loss 0.8873 | train 68.52% | val 70.30% (top5 98.20%) | lr 0.1623 |   7.0s  *best
+epoch   4/8 | loss 0.7409 | train 73.84% | val 72.96% (top5 98.32%) | lr 0.1223 |   7.1s  *best
+trial  59 | r32 relu stem16 | mbconvx4 k7 d1 w16 | dwsep k3 d2 w96 | dwsep k5 d3 w128 | dwsep k3 d1 w192
+          params 139,178 | size 0.605 MB | CPU 1.08 ms | peak mem 2.35 MB | MACs 13.2 M
+          pruned by the median rule (worse than earlier candidates)
+trial  60 | r32 silu stem24 | mbconvx6 k7 d1 w32 | mbconvx6 k7 d3 w96 | dwsep k3 d2 w64
+          params 356,018 | size 1.491 MB | CPU 3.02 ms | peak mem 5.00 MB | MACs 101.9 M
+          REJECTED: latency 3.02 ms > 2.0 ms; size 1.491 MB > 1.0 MB
+epoch   1/8 | loss 1.7593 | train 33.30% | val 42.34% (top5 91.60%) | lr 0.2000 |  23.6s  *best
+epoch   2/8 | loss 1.2517 | train 54.87% | val 59.60% (top5 95.60%) | lr 0.1901 |   6.0s  *best
+epoch   3/8 | loss 1.0212 | train 63.62% | val 65.00% (top5 97.08%) | lr 0.1623 |   6.2s  *best
+trial  61 | r24 leakyrelu stem16 | mbconvx6 k7 d1 w16 | dwsep k5 d2 w64 | dwsep k5 d2 w128
+          params 64,394 | size 0.292 MB | CPU 0.80 ms | peak mem 0.99 MB | MACs 7.4 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.6593 | train 37.87% | val 46.16% (top5 93.08%) | lr 0.2000 |   9.3s  *best
+epoch   2/8 | loss 1.0728 | train 61.52% | val 64.76% (top5 97.16%) | lr 0.1901 |   7.3s  *best
+epoch   3/8 | loss 0.8650 | train 69.10% | val 66.48% (top5 97.36%) | lr 0.1623 |   7.4s  *best
+trial  62 | r32 leakyrelu stem16 | mbconvx6 k7 d1 w16 | dwsep k5 d1 w96 | dwsep k5 d2 w96 | dwsep k3 d1 w256
+          params 129,578 | size 0.556 MB | CPU 0.89 ms | peak mem 2.59 MB | MACs 11.8 M
+          pruned by the median rule (worse than earlier candidates)
+trial  63 | r32 silu stem24 | mbconvx6 k7 d3 w24 | dwsep k3 d1 w96 | mbconvx4 k7 d2 w128
+          params 330,250 | size 1.385 MB | CPU 2.64 ms | peak mem 5.00 MB | MACs 69.0 M
+          REJECTED: latency 2.64 ms > 2.0 ms; size 1.385 MB > 1.0 MB
+trial  64 | r32 relu stem16 | mbconvx6 k3 d1 w16 | dwsep k5 d2 w96 | dwsep k5 d2 w160 | conv k7 d2 w96
+          params 1,285,930 | size 5.186 MB | CPU 1.77 ms | peak mem 8.92 MB | MACs 30.4 M
+          REJECTED: size 5.186 MB > 1.0 MB; peak memory 8.92 MB > 8.0 MB
+epoch   1/8 | loss 1.7301 | train 34.58% | val 40.46% (top5 84.76%) | lr 0.2000 |   5.8s  *best
+epoch   2/8 | loss 1.1331 | train 58.82% | val 64.82% (top5 97.28%) | lr 0.1901 |   5.8s  *best
+epoch   3/8 | loss 0.9495 | train 66.01% | val 66.70% (top5 97.14%) | lr 0.1623 |   5.8s  *best
+trial  65 | r32 leakyrelu stem16 | mbconvx6 k3 d1 w16 | dwsep k3 d1 w64 | dwsep k5 d2 w128
+          params 54,346 | size 0.247 MB | CPU 0.89 ms | peak mem 2.28 MB | MACs 7.7 M
+          pruned by the median rule (worse than earlier candidates)
+trial  66 | r32 hardswish stem24 | mbconvx4 k7 d1 w16 | mbconvx6 k7 d2 w96 | dwsep k5 d2 w128 | mbconvx4 k5 d3 w128
+          params 658,690 | size 2.730 MB | CPU 2.23 ms | peak mem 4.85 MB | MACs 62.6 M
+          REJECTED: latency 2.23 ms > 2.0 ms; size 2.730 MB > 1.0 MB
+epoch   1/8 | loss 1.7692 | train 32.66% | val 35.60% (top5 88.38%) | lr 0.2000 |  52.5s  *best
+epoch   2/8 | loss 1.1476 | train 58.64% | val 66.16% (top5 97.28%) | lr 0.1901 |  11.9s  *best
+epoch   3/8 | loss 0.8960 | train 68.35% | val 62.56% (top5 95.88%) | lr 0.1623 |  11.9s
+trial  67 | r40 hardswish stem16 | mbconvx6 k7 d1 w16 | dwsep k3 d2 w64 | dwsep k5 d2 w128 | dwsep k3 d1 w128
+          params 81,162 | size 0.366 MB | CPU 1.17 ms | peak mem 2.51 MB | MACs 19.3 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7034 | train 36.12% | val 46.30% (top5 93.30%) | lr 0.2000 |  11.9s  *best
+epoch   2/8 | loss 1.0898 | train 60.79% | val 62.62% (top5 96.98%) | lr 0.1901 |   9.4s  *best
+epoch   3/8 | loss 0.8649 | train 69.19% | val 69.42% (top5 97.88%) | lr 0.1623 |   9.4s  *best
+epoch   4/8 | loss 0.7330 | train 74.24% | val 73.34% (top5 98.58%) | lr 0.1223 |   9.3s  *best
+trial  68 | r32 hardswish stem16 | mbconvx6 k7 d1 w32 | dwsep k3 d2 w96 | dwsep k7 d2 w64
+          params 52,698 | size 0.245 MB | CPU 0.94 ms | peak mem 2.28 MB | MACs 15.1 M
+          pruned by the median rule (worse than earlier candidates)
+trial  69 | r32 silu stem32 | mbconvx2 k7 d2 w32 | mbconvx2 k5 d3 w64 | conv k7 d2 w64
+          params 476,010 | size 1.954 MB | CPU 1.94 ms | peak mem 3.05 MB | MACs 55.5 M
+          REJECTED: size 1.954 MB > 1.0 MB
+trial  70 | r32 hardswish stem32 | mbconvx6 k3 d1 w48 | dwsep k3 d2 w48 | mbconvx6 k5 d2 w128 | dwsep k3 d1 w256
+          params 406,474 | size 1.690 MB | CPU 1.99 ms | peak mem 5.71 MB | MACs 41.5 M
+          REJECTED: size 1.690 MB > 1.0 MB
+trial  71 | r32 leakyrelu stem16 | mbconvx6 k7 d1 w32 | dwsep k3 d3 w64 | dwsep k5 d2 w64
+          params 44,250 | size 0.216 MB | CPU 1.13 ms | peak mem 2.25 MB | MACs 14.2 M
+          duplicate of an earlier trial -> val 80.94%
+epoch   1/8 | loss 1.6979 | train 36.78% | val 50.52% (top5 94.00%) | lr 0.2000 |   8.5s  *best
+epoch   2/8 | loss 1.0316 | train 62.75% | val 66.56% (top5 97.30%) | lr 0.1901 |   8.7s  *best
+epoch   3/8 | loss 0.7903 | train 72.28% | val 70.72% (top5 97.62%) | lr 0.1623 |   8.6s  *best
+epoch   4/8 | loss 0.6514 | train 77.29% | val 73.94% (top5 98.24%) | lr 0.1223 |   8.6s  *best
+trial  72 | r32 hardswish stem16 | mbconvx6 k5 d1 w32 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128
+          params 161,978 | size 0.693 MB | CPU 1.20 ms | peak mem 2.73 MB | MACs 23.3 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7888 | train 32.82% | val 38.50% (top5 89.88%) | lr 0.2000 |   5.4s  *best
+epoch   2/8 | loss 1.2083 | train 56.30% | val 59.56% (top5 95.74%) | lr 0.1901 |   5.0s  *best
+epoch   3/8 | loss 1.0004 | train 64.26% | val 66.18% (top5 96.82%) | lr 0.1623 |   5.1s  *best
+trial  73 | r32 hardswish stem16 | dwsep k7 d1 w16 | dwsep k3 d2 w64 | dwsep k5 d2 w128
+          params 56,026 | size 0.256 MB | CPU 0.70 ms | peak mem 0.66 MB | MACs 5.9 M
+          pruned by the median rule (worse than earlier candidates)
+trial  74 | r32 silu stem24 | mbconvx6 k7 d2 w32 | dwsep k5 d3 w64 | dwsep k7 d2 w64
+          params 78,642 | size 0.363 MB | CPU 2.03 ms | peak mem 3.88 MB | MACs 43.5 M
+          REJECTED: latency 2.03 ms > 2.0 ms
+epoch   1/8 | loss 1.6867 | train 35.87% | val 42.88% (top5 90.14%) | lr 0.2000 |  17.1s  *best
+epoch   2/8 | loss 1.0990 | train 60.44% | val 58.02% (top5 95.34%) | lr 0.1901 |  15.2s  *best
+epoch   3/8 | loss 0.9013 | train 68.15% | val 65.00% (top5 96.74%) | lr 0.1623 |  15.1s  *best
+trial  75 | r32 leakyrelu stem16 | mbconvx6 k7 d3 w16 | dwsep k3 d2 w48 | dwsep k5 d2 w128
+          params 74,730 | size 0.348 MB | CPU 1.61 ms | peak mem 2.45 MB | MACs 28.0 M
+          pruned by the median rule (worse than earlier candidates)
+trial  76 | r24 hardswish stem32 | conv k3 d2 w48 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128
+          params 191,450 | size 0.808 MB | CPU 1.12 ms | peak mem 8.07 MB | MACs 29.5 M
+          REJECTED: peak memory 8.07 MB > 8.0 MB
+epoch   1/8 | loss 1.7089 | train 35.33% | val 44.62% (top5 91.56%) | lr 0.2000 |  10.7s  *best
+epoch   2/8 | loss 1.0963 | train 60.18% | val 65.08% (top5 96.40%) | lr 0.1901 |   6.0s  *best
+epoch   3/8 | loss 0.8655 | train 69.35% | val 60.12% (top5 96.20%) | lr 0.1623 |   6.0s
+trial  77 | r32 leakyrelu stem16 | mbconvx2 k5 d1 w16 | dwsep k3 d2 w96 | dwsep k5 d2 w160 | dwsep k3 d1 w96
+          params 94,474 | size 0.420 MB | CPU 0.99 ms | peak mem 1.15 MB | MACs 8.8 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.6788 | train 36.71% | val 41.08% (top5 90.38%) | lr 0.2000 |  27.5s  *best
+epoch   2/8 | loss 1.0945 | train 60.83% | val 60.52% (top5 96.70%) | lr 0.1901 |  15.2s  *best
+epoch   3/8 | loss 0.8891 | train 68.46% | val 58.46% (top5 95.94%) | lr 0.1623 |  15.3s
+trial  78 | r32 leakyrelu stem16 | mbconvx6 k7 d1 w24 | mbconvx6 k3 d2 w96 | mbconvx2 k5 d1 w64
+          params 193,210 | size 0.821 MB | CPU 1.62 ms | peak mem 4.40 MB | MACs 52.6 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7769 | train 32.33% | val 42.00% (top5 91.40%) | lr 0.2000 |   6.5s  *best
+epoch   2/8 | loss 1.2521 | train 54.56% | val 59.08% (top5 96.18%) | lr 0.1901 |   4.2s  *best
+epoch   3/8 | loss 1.0444 | train 62.51% | val 64.24% (top5 97.28%) | lr 0.1623 |   4.3s  *best
+trial  79 | r32 leakyrelu stem16 | mbconvx2 k7 d1 w16 | dwsep k3 d2 w64 | dwsep k3 d2 w160
+          params 75,946 | size 0.339 MB | CPU 0.78 ms | peak mem 1.07 MB | MACs 8.7 M
+          pruned by the median rule (worse than earlier candidates)
+trial  80 | r24 leakyrelu stem16 | mbconvx4 k5 d1 w16 | mbconvx2 k5 d2 w48 | dwsep k5 d2 w160 | conv k7 d3 w192
+          params 5,217,386 | size 20.921 MB | CPU 4.13 ms | peak mem 28.24 MB | MACs 52.4 M
+          REJECTED: latency 4.13 ms > 2.0 ms; size 20.921 MB > 1.0 MB; peak memory 28.24 MB > 8.0 MB
+epoch   1/8 | loss 1.6815 | train 36.83% | val 40.00% (top5 87.24%) | lr 0.2000 |   8.3s  *best
+epoch   2/8 | loss 1.0743 | train 61.21% | val 61.76% (top5 96.12%) | lr 0.1901 |   7.8s  *best
+epoch   3/8 | loss 0.8807 | train 68.54% | val 70.24% (top5 97.06%) | lr 0.1623 |   7.8s  *best
+epoch   4/8 | loss 0.7597 | train 73.27% | val 71.40% (top5 98.20%) | lr 0.1223 |   7.7s  *best
+trial  81 | r32 leakyrelu stem16 | mbconvx6 k7 d1 w32 | conv k3 d3 w64 | dwsep k5 d2 w64
+          params 124,410 | size 0.529 MB | CPU 1.23 ms | peak mem 2.57 MB | MACs 34.8 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7435 | train 34.46% | val 40.70% (top5 86.92%) | lr 0.2000 |  39.0s  *best
+epoch   2/8 | loss 1.1347 | train 59.38% | val 58.46% (top5 95.72%) | lr 0.1901 |  16.7s  *best
+epoch   3/8 | loss 0.9047 | train 67.60% | val 65.98% (top5 96.98%) | lr 0.1623 |  16.5s  *best
+trial  82 | r40 hardswish stem32 | mbconvx6 k3 d1 w16 | dwsep k3 d2 w96 | dwsep k5 d2 w128
+          params 78,202 | size 0.350 MB | CPU 1.33 ms | peak mem 4.80 MB | MACs 28.7 M
+          pruned by the median rule (worse than earlier candidates)
+trial  83 | r32 silu stem32 | mbconvx6 k7 d1 w32 | dwsep k3 d1 w96 | mbconvx6 k5 d2 w128
+          params 410,122 | size 1.696 MB | CPU 1.93 ms | peak mem 4.19 MB | MACs 58.6 M
+          REJECTED: size 1.696 MB > 1.0 MB
+epoch   1/8 | loss 1.6830 | train 36.86% | val 46.60% (top5 93.66%) | lr 0.2000 |  16.6s  *best
+epoch   2/8 | loss 1.0456 | train 62.26% | val 66.88% (top5 97.90%) | lr 0.1901 |   9.1s  *best
+epoch   3/8 | loss 0.8341 | train 70.59% | val 73.86% (top5 98.50%) | lr 0.1623 |   9.2s  *best
+epoch   4/8 | loss 0.7167 | train 74.75% | val 76.02% (top5 98.62%) | lr 0.1223 |   9.1s  *best
+epoch   5/8 | loss 0.6377 | train 78.00% | val 79.02% (top5 98.86%) | lr 0.0777 |   9.1s  *best
+epoch   6/8 | loss 0.5690 | train 80.26% | val 80.32% (top5 98.98%) | lr 0.0377 |   9.0s  *best
+trial  84 | r32 silu stem24 | mbconvx6 k3 d1 w32 | dwsep k5 d1 w64 | dwsep k7 d2 w64
+          params 38,450 | size 0.183 MB | CPU 0.93 ms | peak mem 3.70 MB | MACs 12.4 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7376 | train 34.15% | val 42.74% (top5 89.76%) | lr 0.2000 |   8.4s  *best
+epoch   2/8 | loss 1.1863 | train 57.34% | val 59.92% (top5 96.50%) | lr 0.1901 |   7.5s  *best
+epoch   3/8 | loss 0.9676 | train 65.38% | val 65.42% (top5 97.12%) | lr 0.1623 |   7.4s  *best
+trial  85 | r32 leakyrelu stem32 | mbconvx2 k7 d1 w48 | dwsep k3 d3 w32 | dwsep k5 d2 w64
+          params 33,274 | size 0.170 MB | CPU 0.97 ms | peak mem 1.10 MB | MACs 11.6 M
+          pruned by the median rule (worse than earlier candidates)
+trial  86 | r32 relu6 stem16 | conv k7 d1 w24 | dwsep k3 d2 w96 | mbconvx4 k5 d2 w128
+          params 294,066 | size 1.223 MB | CPU 1.40 ms | peak mem 2.17 MB | MACs 46.4 M
+          REJECTED: size 1.223 MB > 1.0 MB
+epoch   1/8 | loss 1.7175 | train 35.27% | val 46.14% (top5 93.02%) | lr 0.2000 |   3.9s  *best
+epoch   2/8 | loss 1.1106 | train 59.94% | val 57.22% (top5 95.36%) | lr 0.1901 |   3.9s  *best
+epoch   3/8 | loss 0.8901 | train 68.26% | val 65.30% (top5 96.82%) | lr 0.1623 |   3.9s  *best
+trial  87 | r32 leakyrelu stem16 | conv k5 d1 w32 | dwsep k3 d3 w64 | dwsep k5 d2 w128
+          params 73,914 | size 0.330 MB | CPU 0.93 ms | peak mem 0.79 MB | MACs 19.5 M
+          pruned by the median rule (worse than earlier candidates)
+trial  88 | r32 hardswish stem16 | mbconvx6 k7 d1 w16 | conv k3 d2 w96 | dwsep k3 d2 w128 | mbconvx6 k5 d2 w128
+          params 593,658 | size 2.444 MB | CPU 1.59 ms | peak mem 4.47 MB | MACs 47.0 M
+          REJECTED: size 2.444 MB > 1.0 MB
+epoch   1/8 | loss 1.6751 | train 36.91% | val 48.62% (top5 93.84%) | lr 0.2000 |  12.3s  *best
+epoch   2/8 | loss 1.0918 | train 60.60% | val 61.70% (top5 96.32%) | lr 0.1901 |   9.9s  *best
+epoch   3/8 | loss 0.8813 | train 68.88% | val 68.30% (top5 97.86%) | lr 0.1623 |  10.0s  *best
+trial  89 | r32 leakyrelu stem24 | mbconvx6 k7 d1 w32 | dwsep k3 d1 w64 | mbconvx2 k5 d2 w64
+          params 69,170 | size 0.313 MB | CPU 1.02 ms | peak mem 3.82 MB | MACs 21.3 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7208 | train 35.15% | val 44.54% (top5 91.94%) | lr 0.2000 |  12.4s  *best
+epoch   2/8 | loss 1.1151 | train 59.98% | val 51.64% (top5 93.26%) | lr 0.1901 |   5.7s  *best
+epoch   3/8 | loss 0.8731 | train 68.96% | val 64.76% (top5 97.42%) | lr 0.1623 |   5.8s  *best
+trial  90 | r32 leakyrelu stem24 | mbconvx2 k5 d1 w16 | dwsep k5 d2 w96 | dwsep k5 d1 w128 | dwsep k3 d1 w128
+          params 69,314 | size 0.313 MB | CPU 0.94 ms | peak mem 1.07 MB | MACs 8.8 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7161 | train 35.73% | val 43.92% (top5 90.70%) | lr 0.2000 |  10.1s  *best
+epoch   2/8 | loss 1.0674 | train 61.53% | val 61.56% (top5 97.04%) | lr 0.1901 |   8.8s  *best
+epoch   3/8 | loss 0.8573 | train 69.71% | val 70.84% (top5 97.78%) | lr 0.1623 |   8.8s  *best
+epoch   4/8 | loss 0.7330 | train 74.20% | val 74.44% (top5 98.52%) | lr 0.1223 |   8.6s  *best
+trial  91 | r32 hardswish stem24 | mbconvx6 k3 d1 w24 | conv k3 d2 w32 | mbconvx2 k5 d2 w128
+          params 129,282 | size 0.555 MB | CPU 1.06 ms | peak mem 4.07 MB | MACs 20.0 M
+          pruned by the median rule (worse than earlier candidates)
+trial  92 | r32 leakyrelu stem16 | conv k5 d2 w32 | dwsep k3 d3 w48 | conv k7 d2 w96
+          params 738,426 | size 2.984 MB | CPU 1.73 ms | peak mem 6.02 MB | MACs 85.8 M
+          REJECTED: size 2.984 MB > 1.0 MB
+epoch   1/8 | loss 1.6845 | train 36.63% | val 50.62% (top5 94.26%) | lr 0.2000 |  14.6s  *best
+epoch   2/8 | loss 1.0547 | train 62.36% | val 63.66% (top5 95.00%) | lr 0.1901 |   9.0s  *best
+epoch   3/8 | loss 0.8062 | train 71.54% | val 70.48% (top5 97.22%) | lr 0.1623 |   9.0s  *best
+epoch   4/8 | loss 0.6739 | train 76.45% | val 74.22% (top5 98.30%) | lr 0.1223 |   9.0s  *best
+trial  93 | r32 silu stem16 | mbconvx6 k7 d1 w24 | dwsep k7 d1 w96 | mbconvx2 k5 d2 w96
+          params 112,242 | size 0.487 MB | CPU 1.08 ms | peak mem 2.53 MB | MACs 19.7 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.6801 | train 36.76% | val 46.48% (top5 90.02%) | lr 0.2000 |   4.9s  *best
+epoch   2/8 | loss 1.0501 | train 62.29% | val 63.36% (top5 97.26%) | lr 0.1901 |   4.8s  *best
+epoch   3/8 | loss 0.8430 | train 69.93% | val 65.52% (top5 97.38%) | lr 0.1623 |   4.9s  *best
+trial  94 | r32 leakyrelu stem16 | mbconvx2 k5 d1 w32 | dwsep k3 d3 w48 | dwsep k7 d3 w96
+          params 60,522 | size 0.285 MB | CPU 0.94 ms | peak mem 1.23 MB | MACs 7.7 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7404 | train 33.74% | val 43.82% (top5 90.80%) | lr 0.2000 |  10.6s  *best
+epoch   2/8 | loss 1.1758 | train 57.27% | val 56.70% (top5 96.14%) | lr 0.1901 |   6.0s  *best
+epoch   3/8 | loss 0.9449 | train 66.25% | val 65.18% (top5 97.26%) | lr 0.1623 |   6.1s  *best
+trial  95 | r32 leakyrelu stem16 | dwsep k7 d1 w32 | dwsep k7 d3 w48 | dwsep k5 d2 w64
+          params 35,002 | size 0.174 MB | CPU 0.97 ms | peak mem 1.12 MB | MACs 6.1 M
+          pruned by the median rule (worse than earlier candidates)
+trial  96 | r32 relu stem16 | conv k3 d1 w32 | dwsep k3 d3 w48 | conv k7 d2 w96
+          params 704,570 | size 2.846 MB | CPU 1.23 ms | peak mem 5.89 MB | MACs 51.2 M
+          REJECTED: size 2.846 MB > 1.0 MB
+epoch   1/8 | loss 1.6920 | train 36.58% | val 44.40% (top5 86.52%) | lr 0.2000 |   4.8s  *best
+epoch   2/8 | loss 1.1191 | train 59.75% | val 60.18% (top5 95.54%) | lr 0.1901 |   4.7s  *best
+epoch   3/8 | loss 0.9107 | train 67.80% | val 64.66% (top5 97.50%) | lr 0.1623 |   4.7s  *best
+trial  97 | r32 leakyrelu stem16 | conv k5 d1 w32 | dwsep k3 d3 w48 | dwsep k7 d2 w96 | dwsep k3 d1 w128
+          params 74,250 | size 0.336 MB | CPU 1.17 ms | peak mem 1.28 MB | MACs 17.2 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7105 | train 35.50% | val 43.84% (top5 89.72%) | lr 0.2000 |   7.3s  *best
+epoch   2/8 | loss 1.1214 | train 59.45% | val 50.82% (top5 92.62%) | lr 0.1901 |   7.3s  *best
+epoch   3/8 | loss 0.9227 | train 67.17% | val 64.66% (top5 97.60%) | lr 0.1623 |   7.3s  *best
+trial  98 | r32 leakyrelu stem16 | mbconvx6 k7 d1 w16 | dwsep k3 d2 w64 | dwsep k5 d3 w96
+          params 60,810 | size 0.283 MB | CPU 0.99 ms | peak mem 2.32 MB | MACs 12.7 M
+          pruned by the median rule (worse than earlier candidates)
+epoch   1/8 | loss 1.7246 | train 35.06% | val 47.10% (top5 89.74%) | lr 0.2000 |  26.5s  *best
+epoch   2/8 | loss 1.0929 | train 60.92% | val 64.10% (top5 95.96%) | lr 0.1901 |  13.3s  *best
+epoch   3/8 | loss 0.8412 | train 70.44% | val 72.90% (top5 98.36%) | lr 0.1623 |  12.8s  *best
+epoch   4/8 | loss 0.6967 | train 75.88% | val 78.08% (top5 98.46%) | lr 0.1223 |  13.4s  *best
+epoch   5/8 | loss 0.5930 | train 79.44% | val 80.42% (top5 99.10%) | lr 0.0777 |  13.6s  *best
+epoch   6/8 | loss 0.5168 | train 82.26% | val 83.18% (top5 99.24%) | lr 0.0377 |  13.6s  *best
+epoch   7/8 | loss 0.4473 | train 84.59% | val 84.00% (top5 99.28%) | lr 0.0099 |  13.6s  *best
+epoch   8/8 | loss 0.4007 | train 86.33% | val 84.34% (top5 99.38%) | lr 0.0000 |  13.6s  *best
+trial  99 | r32 hardswish stem32 | mbconvx6 k3 d2 w24 | dwsep k3 d2 w48 | mbconvx2 k5 d2 w128
+          params 138,578 | size 0.606 MB | CPU 1.60 ms | peak mem 4.25 MB | MACs 30.9 M
+          trained 8 ep in 128s -> val top-1 84.34%
+
+==============================================================================
+NAS summary
+==============================================================================
+trials 100 in 39.6 min | complete 11 | pruned 52 | rejected (constraints) 36 | duplicates 1
+best proxy accuracy 84.86% | selected trial 39 (val 84.86%, 1.07 ms, 0.679 MB, 1.62 MB peak)
+selected architecture: r32 hardswish stem32 | mbconvx2 k3 d1 w24 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128
+Pareto front (feasible, accuracy vs CPU latency): 4 architectures
+   trial   5: 79.84% @ 0.88 ms, 0.259 MB
+   trial  25: 81.66% @ 0.90 ms, 0.287 MB
+   trial  37: 83.78% @ 0.95 ms, 0.623 MB
+   trial  39: 84.86% @ 1.07 ms, 0.679 MB
+saved C:\Users\PC\Desktop\Semester 7\EDGE COMPUTING\edge_assignment4\results\nas\best_architecture.json

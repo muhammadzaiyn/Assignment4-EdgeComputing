@@ -1,0 +1,74 @@
+{
+  "resolution": [
+    24,
+    32,
+    40
+  ],
+  "activation": [
+    "relu",
+    "relu6",
+    "hardswish",
+    "silu",
+    "leakyrelu"
+  ],
+  "stem_channels": [
+    16,
+    24,
+    32
+  ],
+  "num_stages": [
+    3,
+    4
+  ],
+  "block": [
+    "conv",
+    "dwsep",
+    "mbconv"
+  ],
+  "depth_per_stage": [
+    1,
+    2,
+    3
+  ],
+  "kernel": [
+    3,
+    5,
+    7
+  ],
+  "mbconv_expansion": [
+    2,
+    4,
+    6
+  ],
+  "dropout": [
+    0.0,
+    0.1,
+    0.2
+  ],
+  "stage_widths": [
+    [
+      16,
+      24,
+      32,
+      48
+    ],
+    [
+      32,
+      48,
+      64,
+      96
+    ],
+    [
+      64,
+      96,
+      128,
+      160
+    ],
+    [
+      96,
+      128,
+      192,
+      256
+    ]
+  ]
+}

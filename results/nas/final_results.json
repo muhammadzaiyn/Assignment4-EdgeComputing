@@ -1,0 +1,56 @@
+{
+  "selected_trial": 39,
+  "summary": "r32 hardswish stem32 | mbconvx2 k3 d1 w24 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128",
+  "config": {
+    "resolution": 32,
+    "activation": "hardswish",
+    "stem_channels": 32,
+    "dropout": 0.0,
+    "stages": [
+      {
+        "block": "mbconv",
+        "depth": 1,
+        "width": 24,
+        "kernel": 3,
+        "expand": 2
+      },
+      {
+        "block": "dwsep",
+        "depth": 2,
+        "width": 96,
+        "kernel": 3,
+        "expand": 1
+      },
+      {
+        "block": "mbconv",
+        "depth": 2,
+        "width": 128,
+        "kernel": 5,
+        "expand": 2
+      }
+    ]
+  },
+  "best_epoch": 97,
+  "val_top1": 92.0,
+  "test_top1": 91.15,
+  "test_top5": 99.69,
+  "proxy_val_acc": 84.86,
+  "train_minutes": 12.56,
+  "hardware": {
+    "params": 158594,
+    "macs_m": 20.622592,
+    "size_mb": 0.678799,
+    "cpu_latency_ms": 1.0884000002988614,
+    "cpu_latency_p90_ms": 1.3649499993334757,
+    "peak_mem_mb": 1.62304,
+    "activation_mem_mb": 0.942592
+  },
+  "constraints": {
+    "max_latency_ms": 2.0,
+    "max_size_mb": 1.0,
+    "max_peak_mem_mb": 8.0
+  },
+  "satisfies_constraints": true,
+  "violations": [],
+  "checkpoint": "nas/nas_best.pth"
+}

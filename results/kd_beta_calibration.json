@@ -1,0 +1,29 @@
+{
+  "alpha": 0.9,
+  "temperature": 4.0,
+  "per_student": {
+    "mobilenetv2": {
+      "ce": 4.621937894821167,
+      "soft_kl_T2": 41.4052698135376,
+      "feat_mse": 2.4135420441627504,
+      "classification_part": 37.726936621665956,
+      "balanced_beta": 15.63135670783531
+    },
+    "squeezenet": {
+      "ce": 4.609228610992432,
+      "soft_kl_T2": 41.577060508728025,
+      "feat_mse": 2.4163792371749877,
+      "classification_part": 37.88027731895446,
+      "balanced_beta": 15.6764620123291
+    },
+    "efficientnet_lite0": {
+      "ce": 5.096138525009155,
+      "soft_kl_T2": 42.317658233642575,
+      "feat_mse": 2.409736752510071,
+      "classification_part": 38.59550626277923,
+      "balanced_beta": 16.01648239069132
+    }
+  },
+  "median_beta": 15.6764620123291,
+  "chosen_beta": 20
+}

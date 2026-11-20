@@ -1,0 +1,15 @@
+# log started 2026-11-20 05:40:31 | command: python scripts/07_export_onnx.py
+
+==============================================================================
+ONNX export (opset 17) and ONNX Runtime parity check
+==============================================================================
+mobilenetv2_baseline         -> mobilenetv2_baseline.onnx            9.381 MB | nodes  170 | max|diff| 1.34e-05 | top-1 agreement 100.00% | OK
+mobilenetv2_kd               -> mobilenetv2_kd.onnx                  9.381 MB | nodes  170 | max|diff| 2.29e-05 | top-1 agreement 100.00% | OK
+squeezenet_baseline          -> squeezenet_baseline.onnx             3.110 MB | nodes   64 | max|diff| 1.29e-05 | top-1 agreement 100.00% | OK
+squeezenet_kd                -> squeezenet_kd.onnx                   3.110 MB | nodes   64 | max|diff| 4.39e-05 | top-1 agreement 100.00% | OK
+efficientnet_lite0_baseline  -> efficientnet_lite0_baseline.onnx    13.951 MB | nodes  160 | max|diff| 1.14e-05 | top-1 agreement 100.00% | OK
+efficientnet_lite0_kd        -> efficientnet_lite0_kd.onnx          13.951 MB | nodes  160 | max|diff| 2.10e-05 | top-1 agreement 100.00% | OK
+nas_best                     -> nas_best.onnx                        0.636 MB | nodes   32 | max|diff| 1.91e-05 | top-1 agreement 100.00% | OK
+
+all parity checks passed: True
+wrote C:\Users\PC\Desktop\Semester 7\EDGE COMPUTING\edge_assignment4\results\onnx_export.csv

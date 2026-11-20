@@ -1,0 +1,19 @@
+{
+  "model": "resnet50",
+  "params": 23705252,
+  "best_epoch": 38,
+  "val_top1": 81.82,
+  "test_top1": 82.25,
+  "test_top5": 96.33,
+  "train_minutes": 44.24,
+  "checkpoint": "resnet50_cifar100.pth",
+  "arch": "resnet50",
+  "num_classes": 100,
+  "dataset": "cifar100",
+  "pretrained_init": true,
+  "epochs": 40,
+  "lr": 0.05,
+  "weight_decay": 0.0005,
+  "batch_size": 128,
+  "seed": 42
+}

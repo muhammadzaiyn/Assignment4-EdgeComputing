@@ -1,0 +1,4 @@
+arch,params_m,baseline_top1,kd_soft_only_top1,kd_full_top1,kd_gain_points,baseline_top5,kd_full_top5,teacher_top1,baseline_teacher_agreement_pct,kd_teacher_agreement_pct
+mobilenetv2,2.352,73.88,76.92,78.68,4.800000000000011,93.53,95.49,82.27,76.4,83.3
+squeezenet,0.7767,65.27,66.91,67.87,2.6000000000000085,89.53,90.99,82.27,67.67,71.08
+efficientnet_lite0,3.4991,74.2,76.41,78.96,4.759999999999991,93.3,95.46,82.27,75.9,83.28

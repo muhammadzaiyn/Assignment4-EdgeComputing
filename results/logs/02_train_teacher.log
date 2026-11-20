@@ -1,0 +1,53 @@
+# log started 2026-11-20 03:03:22 | command: python scripts/02_train_teacher.py
+
+==============================================================================
+Teacher: ResNet-50 (CIFAR stem) on CIFAR-100
+==============================================================================
+device cuda | params 23,705,252 | ImageNet init True
+epochs 40 | batch 128 | lr 0.05 (warm-up 1 epoch + cosine) | wd 0.0005 | train batches/epoch 351
+epoch   1/40 | loss 2.6246 | train 36.06% | val 53.96% (top5 84.06%) | lr 0.0500 |  73.2s  *best
+epoch   2/40 | loss 1.0906 | train 68.16% | val 62.42% (top5 86.92%) | lr 0.0499 |  65.6s  *best
+epoch   3/40 | loss 0.8102 | train 75.49% | val 70.28% (top5 93.12%) | lr 0.0497 |  67.9s  *best
+epoch   4/40 | loss 0.6811 | train 79.16% | val 71.38% (top5 93.36%) | lr 0.0493 |  71.8s  *best
+epoch   5/40 | loss 0.6167 | train 80.78% | val 71.58% (top5 93.66%) | lr 0.0487 |  66.6s  *best
+epoch   6/40 | loss 0.5646 | train 82.28% | val 70.54% (top5 93.38%) | lr 0.0480 |  67.8s
+epoch   7/40 | loss 0.5196 | train 83.61% | val 70.82% (top5 93.60%) | lr 0.0471 |  68.0s
+epoch   8/40 | loss 0.4832 | train 84.35% | val 71.18% (top5 92.96%) | lr 0.0461 |  70.6s
+epoch   9/40 | loss 0.4662 | train 85.04% | val 71.52% (top5 93.78%) | lr 0.0450 |  66.5s
+epoch  10/40 | loss 0.4252 | train 86.30% | val 71.26% (top5 93.28%) | lr 0.0437 |  67.0s
+epoch  11/40 | loss 0.3977 | train 87.11% | val 72.76% (top5 93.40%) | lr 0.0423 |  68.0s  *best
+epoch  12/40 | loss 0.3674 | train 87.99% | val 73.46% (top5 93.80%) | lr 0.0408 |  71.8s  *best
+epoch  13/40 | loss 0.3429 | train 88.77% | val 74.40% (top5 94.08%) | lr 0.0392 |  68.4s  *best
+epoch  14/40 | loss 0.3189 | train 89.70% | val 74.00% (top5 93.94%) | lr 0.0375 |  66.9s
+epoch  15/40 | loss 0.2823 | train 90.77% | val 73.78% (top5 94.20%) | lr 0.0357 |  62.5s
+epoch  16/40 | loss 0.2590 | train 91.56% | val 74.08% (top5 94.12%) | lr 0.0339 |  65.0s
+epoch  17/40 | loss 0.2338 | train 92.47% | val 73.62% (top5 93.80%) | lr 0.0320 |  70.2s
+epoch  18/40 | loss 0.1992 | train 93.57% | val 72.72% (top5 93.76%) | lr 0.0300 |  69.8s
+epoch  19/40 | loss 0.1806 | train 94.21% | val 75.84% (top5 94.34%) | lr 0.0280 |  69.5s  *best
+epoch  20/40 | loss 0.1510 | train 95.28% | val 76.82% (top5 94.94%) | lr 0.0260 |  68.7s  *best
+epoch  21/40 | loss 0.1215 | train 96.11% | val 75.66% (top5 94.70%) | lr 0.0240 |  68.1s
+epoch  22/40 | loss 0.1019 | train 96.87% | val 76.88% (top5 95.24%) | lr 0.0220 |  71.0s  *best
+epoch  23/40 | loss 0.0787 | train 97.59% | val 78.16% (top5 95.00%) | lr 0.0200 |  70.6s  *best
+epoch  24/40 | loss 0.0648 | train 97.93% | val 78.34% (top5 95.46%) | lr 0.0180 |  66.5s  *best
+epoch  25/40 | loss 0.0437 | train 98.68% | val 79.08% (top5 95.56%) | lr 0.0161 |  68.7s  *best
+epoch  26/40 | loss 0.0330 | train 99.05% | val 79.88% (top5 95.80%) | lr 0.0143 |  68.2s  *best
+epoch  27/40 | loss 0.0234 | train 99.33% | val 79.96% (top5 95.90%) | lr 0.0125 |  65.2s  *best
+epoch  28/40 | loss 0.0141 | train 99.64% | val 80.78% (top5 96.46%) | lr 0.0108 |  61.6s  *best
+epoch  29/40 | loss 0.0107 | train 99.78% | val 80.62% (top5 96.34%) | lr 0.0092 |  60.1s
+epoch  30/40 | loss 0.0088 | train 99.78% | val 81.28% (top5 96.50%) | lr 0.0077 |  44.1s  *best
+epoch  31/40 | loss 0.0056 | train 99.88% | val 81.40% (top5 96.58%) | lr 0.0063 |  53.0s  *best
+epoch  32/40 | loss 0.0050 | train 99.90% | val 81.40% (top5 96.56%) | lr 0.0050 |  53.0s
+epoch  33/40 | loss 0.0037 | train 99.92% | val 81.78% (top5 96.50%) | lr 0.0039 |  53.0s  *best
+epoch  34/40 | loss 0.0031 | train 99.94% | val 81.76% (top5 96.42%) | lr 0.0029 |  53.1s
+epoch  35/40 | loss 0.0029 | train 99.94% | val 81.64% (top5 96.42%) | lr 0.0020 |  53.0s
+epoch  36/40 | loss 0.0029 | train 99.93% | val 81.52% (top5 96.58%) | lr 0.0013 |  53.1s
+epoch  37/40 | loss 0.0026 | train 99.95% | val 81.70% (top5 96.66%) | lr 0.0007 |  53.0s
+epoch  38/40 | loss 0.0025 | train 99.94% | val 81.82% (top5 96.60%) | lr 0.0003 |  52.9s  *best
+epoch  39/40 | loss 0.0024 | train 99.96% | val 81.60% (top5 96.74%) | lr 0.0001 |  53.0s
+epoch  40/40 | loss 0.0025 | train 99.96% | val 81.62% (top5 96.62%) | lr 0.0000 |  53.0s
+
+==============================================================================
+Teacher result
+==============================================================================
+best epoch 38 | val top-1 81.82% | test top-1 82.25% | test top-5 96.33% | training time 44.2 min
+saved C:\Users\PC\Desktop\Semester 7\EDGE COMPUTING\edge_assignment4\checkpoints\teacher\resnet50_cifar100.pth

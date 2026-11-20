@@ -1,0 +1,38 @@
+# log started 2026-11-20 06:02:18 | command: python scripts/13_verify_deliverables.py
+
+==============================================================================
+Deliverables self-check
+==============================================================================
+[PASS]  1 Teacher model            training script + checkpoint exist                   ok
+[PASS]  1 Teacher model            checkpoint loads and runs                            output (2, 100)
+[PASS]  1 Teacher model            test accuracy recorded (FP32 benchmark)              test top-1 82.27%
+[PASS]  2 Student architectures    MobileNetV2 / SqueezeNet / EfficientNet-Lite0 code   ok
+[PASS]  3 Baseline students        mobilenetv2_baseline loads and runs                  output (2, 100)
+[PASS]  3 Baseline students        squeezenet_baseline loads and runs                   output (2, 100)
+[PASS]  3 Baseline students        efficientnet_lite0_baseline loads and runs           output (2, 100)
+[PASS]  4 Knowledge distillation   KD framework + training script                       ok
+[PASS]  4 Knowledge distillation   mobilenetv2_kd loads and runs                        output (2, 100)
+[PASS]  4 Knowledge distillation   squeezenet_kd loads and runs                         output (2, 100)
+[PASS]  4 Knowledge distillation   efficientnet_lite0_kd loads and runs                 output (2, 100)
+[PASS]  5 NAS search space         search space + generator code                        ok
+[PASS]  6 NAS algorithm            Optuna search script + hardware profiler             ok
+[PASS]  7 NAS results              best architecture JSON + history CSV/JSON            ok
+[PASS]  7 NAS results              search history has trials                            100 rows
+[PASS]  8 Optimized architecture   nas_best checkpoint loads and runs                   output (2, 10)
+[PASS]  8 Optimized architecture   final model meets deployment constraints             1.088 ms
+[PASS]  9 Inference pipeline       PyTorch + ONNX inference scripts                     ok
+[PASS] 10 ONNX deployment          mobilenetv2_baseline.onnx runs in ONNX Runtime       CPU EP
+[PASS] 10 ONNX deployment          mobilenetv2_kd.onnx runs in ONNX Runtime             CPU EP
+[PASS] 10 ONNX deployment          squeezenet_baseline.onnx runs in ONNX Runtime        CPU EP
+[PASS] 10 ONNX deployment          squeezenet_kd.onnx runs in ONNX Runtime              CPU EP
+[PASS] 10 ONNX deployment          efficientnet_lite0_baseline.onnx runs in ONNX Runtime CPU EP
+[PASS] 10 ONNX deployment          efficientnet_lite0_kd.onnx runs in ONNX Runtime      CPU EP
+[PASS] 10 ONNX deployment          nas_best.onnx runs in ONNX Runtime                   CPU EP
+[PASS] 10 ONNX deployment          export parity checks passed                          all models
+[PASS] 11 Benchmarking             benchmark script + summary CSV                       ok
+[PASS] 11 Benchmarking             summary covers all models                            8 rows
+[PASS] 12 Technical report         PDF report exists                                    ok
+[PASS] 12 Technical report         screenshots / figures exist                          console captures
+[PASS] 13 README                   README with install + run steps                      ok
+
+31/31 checks passed

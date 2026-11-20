@@ -1,0 +1,116 @@
+# log started 2026-11-20 03:37:36 | command: python C:\Users\PC\Desktop\Semester 7\EDGE COMPUTING\edge_assignment4\scripts\06_nas_train_best.py
+
+==============================================================================
+Training the selected NAS architecture from scratch (CIFAR-10)
+==============================================================================
+architecture (trial 39): r32 hardswish stem32 | mbconvx2 k3 d1 w24 | dwsep k3 d2 w96 | mbconvx2 k5 d2 w128
+params 158,594 | input 32x32 | proxy val acc during search 84.86%
+epochs 100 | lr 0.1 | batch 128 | wd 0.0005
+epoch   1/100 | loss 1.6883 | train 36.44% | val 50.88% (top5 93.18%) | lr 0.1000 |  20.9s  *best
+epoch   2/100 | loss 1.0359 | train 62.92% | val 65.58% (top5 97.16%) | lr 0.1000 |   7.9s  *best
+epoch   3/100 | loss 0.8224 | train 70.94% | val 71.80% (top5 97.72%) | lr 0.0999 |   7.2s  *best
+epoch   4/100 | loss 0.7081 | train 75.26% | val 75.82% (top5 98.48%) | lr 0.0998 |   7.5s  *best
+epoch   5/100 | loss 0.6408 | train 77.64% | val 75.98% (top5 98.90%) | lr 0.0996 |   7.8s  *best
+epoch   6/100 | loss 0.5993 | train 79.20% | val 78.76% (top5 98.98%) | lr 0.0994 |   7.9s  *best
+epoch   7/100 | loss 0.5677 | train 80.37% | val 78.68% (top5 98.78%) | lr 0.0991 |   7.9s
+epoch   8/100 | loss 0.5420 | train 81.30% | val 79.08% (top5 98.94%) | lr 0.0988 |   7.8s  *best
+epoch   9/100 | loss 0.5229 | train 81.79% | val 81.34% (top5 99.10%) | lr 0.0984 |   7.9s  *best
+epoch  10/100 | loss 0.5064 | train 82.38% | val 78.56% (top5 99.02%) | lr 0.0980 |   7.6s
+epoch  11/100 | loss 0.4912 | train 83.12% | val 82.66% (top5 99.26%) | lr 0.0975 |   7.3s  *best
+epoch  12/100 | loss 0.4788 | train 83.33% | val 81.86% (top5 99.16%) | lr 0.0970 |   7.9s
+epoch  13/100 | loss 0.4655 | train 84.00% | val 82.02% (top5 99.10%) | lr 0.0964 |   7.9s
+epoch  14/100 | loss 0.4580 | train 84.23% | val 82.68% (top5 99.08%) | lr 0.0958 |   7.9s  *best
+epoch  15/100 | loss 0.4521 | train 84.38% | val 82.62% (top5 99.28%) | lr 0.0951 |   7.9s
+epoch  16/100 | loss 0.4418 | train 84.63% | val 77.54% (top5 98.76%) | lr 0.0944 |   7.9s
+epoch  17/100 | loss 0.4389 | train 84.71% | val 83.46% (top5 99.06%) | lr 0.0937 |   7.7s  *best
+epoch  18/100 | loss 0.4315 | train 85.03% | val 81.26% (top5 99.18%) | lr 0.0929 |   7.4s
+epoch  19/100 | loss 0.4243 | train 85.38% | val 83.80% (top5 99.40%) | lr 0.0921 |   7.9s  *best
+epoch  20/100 | loss 0.4151 | train 85.69% | val 84.76% (top5 99.42%) | lr 0.0912 |   7.8s  *best
+epoch  21/100 | loss 0.4118 | train 85.62% | val 83.56% (top5 99.32%) | lr 0.0903 |   7.9s
+epoch  22/100 | loss 0.4110 | train 85.79% | val 84.26% (top5 99.54%) | lr 0.0893 |   7.8s
+epoch  23/100 | loss 0.4009 | train 86.18% | val 83.90% (top5 99.46%) | lr 0.0883 |   7.9s
+epoch  24/100 | loss 0.4019 | train 86.01% | val 84.38% (top5 99.40%) | lr 0.0873 |   7.7s
+epoch  25/100 | loss 0.3983 | train 86.22% | val 84.72% (top5 99.38%) | lr 0.0862 |   7.0s
+epoch  26/100 | loss 0.3853 | train 86.60% | val 82.06% (top5 99.20%) | lr 0.0851 |   7.9s
+epoch  27/100 | loss 0.3831 | train 86.65% | val 85.20% (top5 99.46%) | lr 0.0839 |   7.8s  *best
+epoch  28/100 | loss 0.3806 | train 86.84% | val 85.04% (top5 99.32%) | lr 0.0827 |   7.8s
+epoch  29/100 | loss 0.3747 | train 86.98% | val 83.06% (top5 99.24%) | lr 0.0815 |   7.9s
+epoch  30/100 | loss 0.3748 | train 86.90% | val 86.42% (top5 99.58%) | lr 0.0803 |   7.9s  *best
+epoch  31/100 | loss 0.3618 | train 87.40% | val 85.62% (top5 99.50%) | lr 0.0790 |   7.9s
+epoch  32/100 | loss 0.3631 | train 87.40% | val 85.18% (top5 99.30%) | lr 0.0777 |   7.1s
+epoch  33/100 | loss 0.3542 | train 87.73% | val 84.52% (top5 99.28%) | lr 0.0764 |   7.8s
+epoch  34/100 | loss 0.3533 | train 87.69% | val 86.02% (top5 99.56%) | lr 0.0750 |   7.9s
+epoch  35/100 | loss 0.3491 | train 87.82% | val 86.58% (top5 99.42%) | lr 0.0736 |   7.9s  *best
+epoch  36/100 | loss 0.3484 | train 87.92% | val 86.86% (top5 99.58%) | lr 0.0722 |   7.9s  *best
+epoch  37/100 | loss 0.3331 | train 88.50% | val 86.18% (top5 99.54%) | lr 0.0708 |   7.8s
+epoch  38/100 | loss 0.3324 | train 88.49% | val 85.16% (top5 99.42%) | lr 0.0693 |   7.9s
+epoch  39/100 | loss 0.3301 | train 88.62% | val 86.42% (top5 99.36%) | lr 0.0678 |   7.7s
+epoch  40/100 | loss 0.3254 | train 88.60% | val 84.58% (top5 99.18%) | lr 0.0664 |   7.9s
+epoch  41/100 | loss 0.3159 | train 89.09% | val 85.14% (top5 99.36%) | lr 0.0648 |   7.8s
+epoch  42/100 | loss 0.3129 | train 89.13% | val 84.46% (top5 99.52%) | lr 0.0633 |   7.9s
+epoch  43/100 | loss 0.3130 | train 89.14% | val 87.66% (top5 99.72%) | lr 0.0618 |   7.8s  *best
+epoch  44/100 | loss 0.3060 | train 89.42% | val 86.82% (top5 99.50%) | lr 0.0602 |   7.9s
+epoch  45/100 | loss 0.3023 | train 89.37% | val 86.48% (top5 99.60%) | lr 0.0587 |   7.8s
+epoch  46/100 | loss 0.2958 | train 89.71% | val 86.82% (top5 99.56%) | lr 0.0571 |   7.8s
+epoch  47/100 | loss 0.2896 | train 89.72% | val 86.54% (top5 99.54%) | lr 0.0555 |   7.9s
+epoch  48/100 | loss 0.2894 | train 89.90% | val 86.54% (top5 99.58%) | lr 0.0540 |   7.8s
+epoch  49/100 | loss 0.2807 | train 90.18% | val 87.32% (top5 99.58%) | lr 0.0524 |   7.9s
+epoch  50/100 | loss 0.2769 | train 90.28% | val 87.88% (top5 99.58%) | lr 0.0508 |   7.9s  *best
+epoch  51/100 | loss 0.2728 | train 90.56% | val 88.24% (top5 99.64%) | lr 0.0492 |   7.9s  *best
+epoch  52/100 | loss 0.2649 | train 90.71% | val 87.18% (top5 99.52%) | lr 0.0476 |   7.7s
+epoch  53/100 | loss 0.2598 | train 90.87% | val 87.22% (top5 99.44%) | lr 0.0460 |   7.9s
+epoch  54/100 | loss 0.2546 | train 91.15% | val 87.84% (top5 99.48%) | lr 0.0445 |   7.8s
+epoch  55/100 | loss 0.2466 | train 91.48% | val 86.84% (top5 99.58%) | lr 0.0429 |   7.9s
+epoch  56/100 | loss 0.2429 | train 91.48% | val 87.74% (top5 99.64%) | lr 0.0413 |   7.9s
+epoch  57/100 | loss 0.2409 | train 91.51% | val 88.30% (top5 99.54%) | lr 0.0398 |   7.8s  *best
+epoch  58/100 | loss 0.2325 | train 91.97% | val 88.12% (top5 99.58%) | lr 0.0382 |   7.9s
+epoch  59/100 | loss 0.2310 | train 91.86% | val 88.04% (top5 99.66%) | lr 0.0367 |   7.2s
+epoch  60/100 | loss 0.2265 | train 91.97% | val 89.74% (top5 99.54%) | lr 0.0352 |   7.8s  *best
+epoch  61/100 | loss 0.2127 | train 92.71% | val 88.48% (top5 99.72%) | lr 0.0336 |   7.8s
+epoch  62/100 | loss 0.2094 | train 92.64% | val 88.66% (top5 99.72%) | lr 0.0322 |   7.9s
+epoch  63/100 | loss 0.2024 | train 92.89% | val 88.50% (top5 99.62%) | lr 0.0307 |   7.9s
+epoch  64/100 | loss 0.1952 | train 93.12% | val 88.48% (top5 99.62%) | lr 0.0292 |   7.9s
+epoch  65/100 | loss 0.1907 | train 93.25% | val 89.60% (top5 99.58%) | lr 0.0278 |   7.9s
+epoch  66/100 | loss 0.1855 | train 93.56% | val 89.14% (top5 99.48%) | lr 0.0264 |   7.7s
+epoch  67/100 | loss 0.1761 | train 93.79% | val 89.16% (top5 99.70%) | lr 0.0250 |   7.8s
+epoch  68/100 | loss 0.1705 | train 93.95% | val 89.16% (top5 99.76%) | lr 0.0236 |   7.8s
+epoch  69/100 | loss 0.1658 | train 94.16% | val 88.80% (top5 99.52%) | lr 0.0223 |   7.9s
+epoch  70/100 | loss 0.1535 | train 94.53% | val 89.60% (top5 99.54%) | lr 0.0210 |   7.9s
+epoch  71/100 | loss 0.1500 | train 94.73% | val 89.70% (top5 99.62%) | lr 0.0197 |   7.8s
+epoch  72/100 | loss 0.1453 | train 94.80% | val 90.40% (top5 99.72%) | lr 0.0185 |   7.8s  *best
+epoch  73/100 | loss 0.1337 | train 95.23% | val 90.06% (top5 99.68%) | lr 0.0173 |   7.3s
+epoch  74/100 | loss 0.1294 | train 95.51% | val 90.08% (top5 99.76%) | lr 0.0161 |   5.1s
+epoch  75/100 | loss 0.1228 | train 95.63% | val 89.82% (top5 99.66%) | lr 0.0149 |   3.9s
+epoch  76/100 | loss 0.1116 | train 96.12% | val 90.10% (top5 99.64%) | lr 0.0138 |   3.9s
+epoch  77/100 | loss 0.1093 | train 96.20% | val 90.70% (top5 99.74%) | lr 0.0127 |   4.1s  *best
+epoch  78/100 | loss 0.0991 | train 96.48% | val 90.42% (top5 99.70%) | lr 0.0117 |   4.3s
+epoch  79/100 | loss 0.0881 | train 96.97% | val 90.30% (top5 99.64%) | lr 0.0107 |   4.4s
+epoch  80/100 | loss 0.0842 | train 97.16% | val 91.34% (top5 99.74%) | lr 0.0097 |   4.7s  *best
+epoch  81/100 | loss 0.0730 | train 97.61% | val 91.10% (top5 99.68%) | lr 0.0088 |   4.4s
+epoch  82/100 | loss 0.0689 | train 97.68% | val 90.70% (top5 99.68%) | lr 0.0079 |   4.7s
+epoch  83/100 | loss 0.0624 | train 97.97% | val 91.24% (top5 99.72%) | lr 0.0071 |   6.4s
+epoch  84/100 | loss 0.0557 | train 98.20% | val 91.44% (top5 99.72%) | lr 0.0063 |   5.1s  *best
+epoch  85/100 | loss 0.0527 | train 98.32% | val 91.08% (top5 99.64%) | lr 0.0056 |   5.2s
+epoch  86/100 | loss 0.0449 | train 98.64% | val 91.26% (top5 99.66%) | lr 0.0049 |   4.7s
+epoch  87/100 | loss 0.0418 | train 98.74% | val 91.08% (top5 99.72%) | lr 0.0042 |   4.9s
+epoch  88/100 | loss 0.0371 | train 98.91% | val 91.50% (top5 99.76%) | lr 0.0036 |   4.7s  *best
+epoch  89/100 | loss 0.0359 | train 98.92% | val 91.54% (top5 99.76%) | lr 0.0030 |   6.4s  *best
+epoch  90/100 | loss 0.0321 | train 99.13% | val 91.78% (top5 99.68%) | lr 0.0025 |   3.1s  *best
+epoch  91/100 | loss 0.0290 | train 99.29% | val 91.90% (top5 99.68%) | lr 0.0020 |   3.4s  *best
+epoch  92/100 | loss 0.0281 | train 99.30% | val 91.88% (top5 99.74%) | lr 0.0016 |   3.9s
+epoch  93/100 | loss 0.0263 | train 99.37% | val 91.98% (top5 99.72%) | lr 0.0012 |   3.9s  *best
+epoch  94/100 | loss 0.0245 | train 99.43% | val 91.88% (top5 99.72%) | lr 0.0009 |   3.7s
+epoch  95/100 | loss 0.0237 | train 99.45% | val 91.86% (top5 99.66%) | lr 0.0006 |   8.0s
+epoch  96/100 | loss 0.0230 | train 99.50% | val 91.86% (top5 99.70%) | lr 0.0004 |   7.7s
+epoch  97/100 | loss 0.0227 | train 99.51% | val 92.00% (top5 99.70%) | lr 0.0002 |   8.2s  *best
+epoch  98/100 | loss 0.0225 | train 99.52% | val 91.90% (top5 99.74%) | lr 0.0001 |   6.5s
+epoch  99/100 | loss 0.0228 | train 99.50% | val 91.80% (top5 99.70%) | lr 0.0000 |   6.9s
+epoch 100/100 | loss 0.0217 | train 99.56% | val 91.82% (top5 99.74%) | lr 0.0000 |  13.6s
+
+==============================================================================
+Final NAS model
+==============================================================================
+best epoch 97 | val 92.00% | test top-1 91.15% | 12.6 min
+measured: CPU 1.088 ms | size 0.679 MB | peak mem 1.62 MB | params 158,594 | MACs 20.6 M
+constraints satisfied: True 
+saved C:\Users\PC\Desktop\Semester 7\EDGE COMPUTING\edge_assignment4\checkpoints\nas\nas_best.pth

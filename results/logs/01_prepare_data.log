@@ -1,0 +1,124 @@
+# log started 2026-11-20 02:38:29 | command: python scripts/01_prepare_data.py
+
+==============================================================================
+Dataset download / cache
+==============================================================================
+cifar10  : train 45000, val 5000, test 10000, classes 10, train images per class 4455-4524
+Downloading cifar100 from https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz
+  downloaded    2.1 / 169.0 MB in   18 s
+  downloaded    4.2 / 169.0 MB in   36 s
+  downloaded    6.3 / 169.0 MB in   52 s
+  downloaded    8.4 / 169.0 MB in   68 s
+  downloaded   10.5 / 169.0 MB in   83 s
+  downloaded   12.6 / 169.0 MB in   99 s
+  downloaded   14.7 / 169.0 MB in  114 s
+  downloaded   16.8 / 169.0 MB in  130 s
+  downloaded   18.9 / 169.0 MB in  146 s
+  downloaded   21.0 / 169.0 MB in  162 s
+  downloaded   23.1 / 169.0 MB in  181 s
+  downloaded   25.2 / 169.0 MB in  196 s
+  downloaded   27.3 / 169.0 MB in  212 s
+  downloaded   29.4 / 169.0 MB in  229 s
+  downloaded   31.5 / 169.0 MB in  248 s
+  downloaded   33.6 / 169.0 MB in  266 s
+  downloaded   35.7 / 169.0 MB in  284 s
+  downloaded   37.7 / 169.0 MB in  301 s
+  downloaded   39.8 / 169.0 MB in  318 s
+  downloaded   41.9 / 169.0 MB in  333 s
+  downloaded   44.0 / 169.0 MB in  352 s
+  downloaded   46.1 / 169.0 MB in  370 s
+  downloaded   48.2 / 169.0 MB in  384 s
+  downloaded   50.3 / 169.0 MB in  399 s
+  downloaded   52.4 / 169.0 MB in  415 s
+  downloaded   54.5 / 169.0 MB in  431 s
+  downloaded   56.6 / 169.0 MB in  447 s
+  downloaded   58.7 / 169.0 MB in  463 s
+  downloaded   60.8 / 169.0 MB in  480 s
+  downloaded   62.9 / 169.0 MB in  495 s
+  downloaded   65.0 / 169.0 MB in  511 s
+  downloaded   67.1 / 169.0 MB in  528 s
+  downloaded   69.2 / 169.0 MB in  544 s
+  downloaded   71.3 / 169.0 MB in  561 s
+  downloaded   73.4 / 169.0 MB in  577 s
+  downloaded   75.5 / 169.0 MB in  594 s
+  downloaded   77.6 / 169.0 MB in  619 s
+  downloaded   78.6 / 169.0 MB in  656 s
+  downloaded   80.7 / 169.0 MB in  673 s
+  downloaded   81.8 / 169.0 MB in  684 s
+  downloaded   82.8 / 169.0 MB in  696 s
+  downloaded   84.9 / 169.0 MB in  712 s
+  downloaded   87.0 / 169.0 MB in  729 s
+  downloaded   89.1 / 169.0 MB in  746 s
+  downloaded   91.2 / 169.0 MB in  763 s
+  downloaded   93.3 / 169.0 MB in  781 s
+  downloaded   95.4 / 169.0 MB in  803 s
+  downloaded   97.5 / 169.0 MB in  820 s
+  downloaded   99.6 / 169.0 MB in  839 s
+  downloaded  101.7 / 169.0 MB in  856 s
+  downloaded  103.8 / 169.0 MB in  872 s
+  downloaded  105.9 / 169.0 MB in  889 s
+  downloaded  108.0 / 169.0 MB in  905 s
+  downloaded  110.1 / 169.0 MB in  922 s
+  downloaded  112.2 / 169.0 MB in  939 s
+  downloaded  114.3 / 169.0 MB in  958 s
+  downloaded  115.3 / 169.0 MB in  969 s
+  downloaded  117.4 / 169.0 MB in  988 s
+  downloaded  118.5 / 169.0 MB in 1000 s
+  downloaded  120.6 / 169.0 MB in 1017 s
+  downloaded  122.7 / 169.0 MB in 1033 s
+  downloaded  124.8 / 169.0 MB in 1049 s
+  downloaded  126.9 / 169.0 MB in 1064 s
+  downloaded  129.0 / 169.0 MB in 1078 s
+  downloaded  131.1 / 169.0 MB in 1092 s
+  downloaded  133.2 / 169.0 MB in 1106 s
+  downloaded  135.3 / 169.0 MB in 1130 s
+  downloaded  137.4 / 169.0 MB in 1143 s
+  downloaded  138.4 / 169.0 MB in 1161 s
+  downloaded  139.5 / 169.0 MB in 1173 s
+  downloaded  141.6 / 169.0 MB in 1188 s
+  downloaded  143.7 / 169.0 MB in 1202 s
+  downloaded  145.8 / 169.0 MB in 1216 s
+  downloaded  147.8 / 169.0 MB in 1229 s
+  downloaded  149.9 / 169.0 MB in 1243 s
+  downloaded  152.0 / 169.0 MB in 1256 s
+  downloaded  154.1 / 169.0 MB in 1269 s
+  downloaded  156.2 / 169.0 MB in 1281 s
+  downloaded  158.3 / 169.0 MB in 1294 s
+  downloaded  160.4 / 169.0 MB in 1309 s
+  downloaded  162.5 / 169.0 MB in 1324 s
+  downloaded  164.6 / 169.0 MB in 1338 s
+  downloaded  166.7 / 169.0 MB in 1352 s
+  downloaded  168.8 / 169.0 MB in 1366 s
+cifar100 cached in C:\Users\PC\Desktop\Semester 7\EDGE COMPUTING\edge_assignment4\data\cifar100.npz (source: torchvision / cs.toronto.edu)
+cifar100 : train 45000, val 5000, test 10000, classes 100, train images per class 426-468
+
+==============================================================================
+GPU data pipeline checks
+==============================================================================
+augmentation check: 64/64 augmented images are valid crop(+flip) windows
+train batch: (128, 3, 32, 32) torch.float32 on cuda:0, mean -0.281, std 1.073
+val batch  : (500, 3, 32, 32), mean 0.008, std 1.002
+batches per epoch (cifar100, bs=128): 351
+
+==============================================================================
+System
+==============================================================================
+  timestamp           : 2026-11-20T03:01:19
+  os                  : Windows 11 (10.0.26300)
+  python              : 3.14.6
+  cpu                 : AMD Ryzen 7 7700 8-Core Processor
+  cpu_physical_cores  : 8
+  cpu_logical_cores   : 16
+  ram_gb              : 16.2
+  torch               : 2.11.0+cu128
+  cuda_available      : True
+  seed                : 42
+  gpu                 : NVIDIA GeForce RTX 5060 Ti
+  gpu_memory_gb       : 17.1
+  cuda_runtime        : 12.8
+  cudnn               : 91900
+  torchvision         : 0.26.0+cu128
+  onnx                : 1.23.2
+  onnxruntime         : 1.32.0
+  optuna              : 5.1.0
+  numpy               : 2.5.4

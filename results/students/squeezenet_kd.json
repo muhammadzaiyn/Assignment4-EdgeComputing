@@ -1,0 +1,16 @@
+{
+  "arch": "squeezenet",
+  "mode": "kd",
+  "params": 776740,
+  "best_epoch": 59,
+  "val_top1": 66.94,
+  "test_top1": 67.86,
+  "test_top5": 91.03,
+  "train_minutes": 21.68,
+  "kd": {
+    "alpha": 0.9,
+    "temperature": 4.0,
+    "beta": 20.0
+  },
+  "checkpoint": "kd/squeezenet_kd.pth"
+}

@@ -1,0 +1,32 @@
+deliverable,name,check,result,detail
+1,Teacher model,training script + checkpoint exist,PASS,ok
+1,Teacher model,checkpoint loads and runs,PASS,"output (2, 100)"
+1,Teacher model,test accuracy recorded (FP32 benchmark),PASS,test top-1 82.27%
+2,Student architectures,MobileNetV2 / SqueezeNet / EfficientNet-Lite0 code,PASS,ok
+3,Baseline students,mobilenetv2_baseline loads and runs,PASS,"output (2, 100)"
+3,Baseline students,squeezenet_baseline loads and runs,PASS,"output (2, 100)"
+3,Baseline students,efficientnet_lite0_baseline loads and runs,PASS,"output (2, 100)"
+4,Knowledge distillation,KD framework + training script,PASS,ok
+4,Knowledge distillation,mobilenetv2_kd loads and runs,PASS,"output (2, 100)"
+4,Knowledge distillation,squeezenet_kd loads and runs,PASS,"output (2, 100)"
+4,Knowledge distillation,efficientnet_lite0_kd loads and runs,PASS,"output (2, 100)"
+5,NAS search space,search space + generator code,PASS,ok
+6,NAS algorithm,Optuna search script + hardware profiler,PASS,ok
+7,NAS results,best architecture JSON + history CSV/JSON,PASS,ok
+7,NAS results,search history has trials,PASS,100 rows
+8,Optimized architecture,nas_best checkpoint loads and runs,PASS,"output (2, 10)"
+8,Optimized architecture,final model meets deployment constraints,PASS,1.088 ms
+9,Inference pipeline,PyTorch + ONNX inference scripts,PASS,ok
+10,ONNX deployment,mobilenetv2_baseline.onnx runs in ONNX Runtime,PASS,CPU EP
+10,ONNX deployment,mobilenetv2_kd.onnx runs in ONNX Runtime,PASS,CPU EP
+10,ONNX deployment,squeezenet_baseline.onnx runs in ONNX Runtime,PASS,CPU EP
+10,ONNX deployment,squeezenet_kd.onnx runs in ONNX Runtime,PASS,CPU EP
+10,ONNX deployment,efficientnet_lite0_baseline.onnx runs in ONNX Runtime,PASS,CPU EP
+10,ONNX deployment,efficientnet_lite0_kd.onnx runs in ONNX Runtime,PASS,CPU EP
+10,ONNX deployment,nas_best.onnx runs in ONNX Runtime,PASS,CPU EP
+10,ONNX deployment,export parity checks passed,PASS,all models
+11,Benchmarking,benchmark script + summary CSV,PASS,ok
+11,Benchmarking,summary covers all models,PASS,8 rows
+12,Technical report,PDF report exists,PASS,ok
+12,Technical report,screenshots / figures exist,PASS,console captures
+13,README,README with install + run steps,PASS,ok

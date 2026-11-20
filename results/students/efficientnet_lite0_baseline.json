@@ -1,0 +1,11 @@
+{
+  "arch": "efficientnet_lite0",
+  "mode": "baseline",
+  "params": 3499108,
+  "best_epoch": 59,
+  "val_top1": 73.4,
+  "test_top1": 74.26,
+  "test_top5": 93.3,
+  "train_minutes": 32.6,
+  "checkpoint": "baseline/efficientnet_lite0_baseline.pth"
+}

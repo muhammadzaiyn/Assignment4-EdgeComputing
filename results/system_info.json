@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-11-20T03:01:19",
+  "os": "Windows 11 (10.0.26300)",
+  "python": "3.14.6",
+  "cpu": "AMD Ryzen 7 7700 8-Core Processor",
+  "cpu_physical_cores": 8,
+  "cpu_logical_cores": 16,
+  "ram_gb": 16.2,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "seed": 42,
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "gpu_memory_gb": 17.1,
+  "cuda_runtime": "12.8",
+  "cudnn": 91900,
+  "torchvision": "0.26.0+cu128",
+  "onnx": "1.23.2",
+  "onnxruntime": "1.32.0",
+  "optuna": "5.1.0",
+  "numpy": "2.5.4"
+}

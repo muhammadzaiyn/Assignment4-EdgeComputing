@@ -1,0 +1,16 @@
+{
+  "arch": "mobilenetv2",
+  "mode": "kd_soft",
+  "params": 2351972,
+  "best_epoch": 57,
+  "val_top1": 75.54,
+  "test_top1": 76.9,
+  "test_top5": 94.83,
+  "train_minutes": 51.17,
+  "kd": {
+    "alpha": 0.9,
+    "temperature": 4.0,
+    "beta": 0.0
+  },
+  "checkpoint": "kd/ablation/mobilenetv2_kd_soft.pth"
+}

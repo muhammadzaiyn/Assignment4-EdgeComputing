@@ -1,0 +1,16 @@
+{
+  "arch": "efficientnet_lite0",
+  "mode": "kd_soft",
+  "params": 3499108,
+  "best_epoch": 60,
+  "val_top1": 76.02,
+  "test_top1": 76.42,
+  "test_top5": 94.88,
+  "train_minutes": 39.04,
+  "kd": {
+    "alpha": 0.9,
+    "temperature": 4.0,
+    "beta": 0.0
+  },
+  "checkpoint": "kd/ablation/efficientnet_lite0_kd_soft.pth"
+}
