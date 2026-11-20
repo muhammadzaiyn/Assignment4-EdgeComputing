@@ -1,0 +1,26 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.pyc
+
+# datasets are downloaded automatically by src/data.py
+data/
+
+# resume-only training states (contain optimiser state; the final *.pth files are kept)
+checkpoints/**/*_last.pth
+
+# smoke-test (--quick) outputs
+*_quick*
+
+# submission archive, local notes, editor/OS files
+*.zip
+~$*
+.DS_Store
+Thumbs.db
+
+# assignment handout from the instructor (not a deliverable)
+Assignment 4.pdf
+
+# personal notes and screenshots (kept locally, not published)
+docs/
+report/screenshots/
